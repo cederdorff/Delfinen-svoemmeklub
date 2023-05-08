@@ -9,12 +9,12 @@
       "active": true,
       "activity-form": "Junior-svømmer / senior-svømmer / motionist-svømmer / konkurrence-svømmer",
       "disciplines": ["butterfly", "crawl", "ryg-crawl", "bryst-svømning"],
-	  "results": {
-		"butterfly": "min.sec.ms",
-		"crawl": "min.sec.ms",
-		"ryg-crawl": "min.sec.ms",
-		"bryst-svømning": "min.sec.ms"
-	  },
+      "best-results": {
+        "butterfly": ["min.sec.ms", "dd.mm.yy"],
+        "crawl": ["min.sec.ms", "dd.mm.yy"],
+        "ryg-crawl": ["min.sec.ms", "dd.mm.yy"],
+        "bryst-svømning": ["min.sec.ms", "dd.mm.yy"]
+      },
       "coach": "bendt bendtsen",
       "subscription-start": "string-dato?",
       "subscription-end": "string-dato?",
