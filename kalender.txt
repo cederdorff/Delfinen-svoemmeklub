@@ -1,0 +1,8 @@
+Kalender / struktur
+8/5 – lav userstories – hjemmearbejde wireframes af alle sider.
+9/5 – sammenlign wireframes og bliv enige om en endelig opsætning, design , funktionaliteter etc. (lav RealTime Database med minimum 10 brugere (3 under 18 svømmere, 3 seniorsvømmere, 2 trænere, kasserer, formand) Bland svømmere med passiv/ aktiv, restance osv.
+10/5 – Snak om SCRUM-roller, sprints og generel arbejdsproces. Lav risikoanalyse. 
+11/5 - Opstart på HTML – statisk indhold af de forskellige wireframes.
+12/5 – Lav CSS på startside og javascript funktioner til rest-API, get, fetch metoder
+15/5 – opsamling på sidste uge. Nåede vi det vi ville, hvordan gik det og samarbejdet, arbejdsfordeling osv.
+Lav javascript til modaler, dropdown menuer, forms
