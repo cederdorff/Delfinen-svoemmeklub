@@ -1,0 +1,25 @@
+Forskellige userstories
+
+- Formand skal kunne oprette ny bruger, med følgende inputs:
+* Medlems alder
+* aktivitetsform (aktivt eller passivt medlemskab, junior eller seniorsvømmer, motionist eller konkurrencesvømmer)
+* Navn
+* adresse
+* email
+* telfonnummer
+* Konkurrencesvømmers svømmediscipliner de er aktive i.
+
+- Klubbens kasserer tager sig af alt vedrørende kontigentbetaling; størrelse
+* aktiv ungdomssvømmer medlem (under 18 år) 1000 kr. årligt
+* aktiv seniorsvømmer (18 år og over) 1600 kr. årligt.
+* aktiv medlem 60 år + gives 25% rabat.
+* passivt medlem 500 kr. årligt
+* overblik og forventet indbetalt kontigent.
+* overblik over medlemer der er i restance.
+
+Konkurrencesvømmer
+* Opdelt i 2 hold (ungdomshold og seniorhold)
+* Hver konkurrencesvømmer skal vise deres svømmediscipliner
+* For svømmer skal deres bedste tid vises, samt tidspunkt.
+* Der skal vises hvilke stævner de har været med i, samt deres placering og tid.
+* Vise top 5 inden for hver svømmedisciplin (butterfæy, crawl, rygcrawl og brystsvømning).
