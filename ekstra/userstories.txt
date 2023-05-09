@@ -23,3 +23,27 @@ Konkurrencesvømmer
 * For svømmer skal deres bedste tid vises, samt tidspunkt.
 * Der skal vises hvilke stævner de har været med i, samt deres placering og tid.
 * Vise top 5 inden for hver svømmedisciplin (butterfæy, crawl, rygcrawl og brystsvømning).
+
+
+- information om brugerne skal ikke kunne tilgåes af hvem som helst, derfor skal der være login til formand, kasserer og træner
+
+
+- formand skal kunne oprette nyt medlem (create)
+
+- formand/kasserer skal kunne se/læse medlemmer (read)
+
+- formand skal kunne opdatere enkelte medlemmer (update)
+
+- formand skal kunne slette et medlem (delete)
+
+
+- Kasserere skal kunne se oversigt over kontingent indtægt (evt indelt efter type medlem aktiv -18 +18 60+)
+
+- Kassereren skal kunne se en oversigt/list over medlemmer der er i restance
+
+
+- træner skal kunne se en top 5 liste over resultater for hver svømme disciplin
+
+- træneren skal kunne tilføje resultater for nyt stævne
+
+- træneren skal kunne tilføje resultater for ny personlig træning pr. disciplin

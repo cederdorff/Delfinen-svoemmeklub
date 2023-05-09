@@ -1,5 +1,5 @@
 {
-  "medlem": {
+  "members": {
     "00": {
       "firstname": "Anders",
       "lastname": "Andersen",
@@ -7,18 +7,24 @@
       "phone": 98876554,
       "email": "andersandersen@notrealemail.dk",
       "active": true,
-      "activity-form": "Junior-svømmer / senior-svømmer / motionist-svømmer / konkurrence-svømmer",
+      "activityForm": "Junior-svømmer / senior-svømmer / motionist-svømmer / konkurrence-svømmer",
       "disciplines": ["butterfly", "crawl", "ryg-crawl", "bryst-svømning"],
-      "best-results": {
-        "butterfly": ["min.sec.ms", "dd.mm.yy"],
-        "crawl": ["min.sec.ms", "dd.mm.yy"],
-        "ryg-crawl": ["min.sec.ms", "dd.mm.yy"],
-        "bryst-svømning": ["min.sec.ms", "dd.mm.yy"]
-      },
       "coach": "bendt bendtsen",
-      "subscription-start": "string-dato?",
-      "subscription-end": "string-dato?",
+      "subscriptionStart": "mm/dd/yyyy",
+      "subscriptionEnd": "mm/dd/yyyy",
       "restance": false
+    }
+  },
+
+  "results": {
+    "00": {
+      "memberId": "00",
+      "disciplin": "butterfly",
+      "timeMiliSeconds": 8495,
+      "date": "mm/dd/yyyy",
+      "tounamentName": "storebælt cup",
+      "tournament": false
     }
   }
 }
+
