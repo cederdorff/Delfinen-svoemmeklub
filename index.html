@@ -19,9 +19,10 @@
             ___
           </button>
           <div class="dropdown-content">
-            <a href="#news">News</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="view-link">Home</a>
+            <a href="#news" class="view-link">News</a>
+            <a href="#about" class="view-link">About</a>
+            <a href="#contact" class="view-link">Contact</a>
           </div>
         </div>
       </div>
@@ -31,9 +32,41 @@
       <button id="login-btn">Login</button>
     </header>
     <main>
-      <img id="background-image" src="img/baggrund.jpg" alt="" />
+      <section id="home" class="view-content">
+        <img id="background-image" src="img/baggrund.jpg" alt="" />
+      </section>
+
+      <section id="news" class="view-content">
+        <img id="background-image-other" src="img/baggrund.jpg" alt="" />
+        <div class="forside-text">
+          <h2>News</h2>
+          <li>Ekstra sprøde fritter i cafeteriet</li>
+          <li>Sleske livreddere er et større problem</li>
+        </div>
+      </section>
+
+      <section id="about" class="view-content">
+        <img id="background-image-other" src="img/baggrund.jpg" alt="" />
+        <div class="forside-text">
+          <h2>About</h2>
+          <p>
+            Vi er en super cool svømmeklub, der får dig til at svømme som en
+            delfin
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="view-content">
+        <img id="background-image-other" src="img/baggrund.jpg" alt="" />
+        <div class="forside-text">
+          <h2>Contact</h2>
+          <p>Stillehavsvej 123</p>
+          <p>2000, Frederiksberg</p>
+          <p>Tlf: +45 98765432</p>
+        </div>
+      </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>
