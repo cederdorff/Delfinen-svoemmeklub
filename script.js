@@ -3,5 +3,5 @@
 window.addEventListener("load", startApp);
 
 function startApp() {
-    console.log("app is running");
+  console.log("app is running");
 }

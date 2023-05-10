@@ -6,7 +6,7 @@ Forskellige userstories
 * Navn
 * adresse
 * email
-* telfonnummer
+* telefonnummer
 * Konkurrencesvømmers svømmediscipliner de er aktive i.
 
 - Klubbens kasserer tager sig af alt vedrørende kontigentbetaling; størrelse
@@ -47,3 +47,27 @@ Konkurrencesvømmer
 - træneren skal kunne tilføje resultater for nyt stævne
 
 - træneren skal kunne tilføje resultater for ny personlig træning pr. disciplin
+
+
+
+Vi vil som administrative brugere af svømmeklubben Delfinen, for at beskytte brugernes oplysninger, have en separat login-funktion tilgængelig for formanden, kassereren og træneren. Dette sikrer, at kun de rigtige autoriserede personer får adgang til informationen om brugerne.
+Formanden skal kunne tilføje et nyt medlem til klubben.
+
+Jeg vil som formand kunne se information om klubbens medlemmer.
+
+Jeg vil som kasserer kunne se information om klubbens medlemmer.
+
+
+Jeg vil som formand kunne opdatere oplysningerne for individuelle medlemmer.
+
+Jeg vil som formand kunne slette et medlem fra klubben.
+
+Jeg vil som kasserer kunne se en oversigt over, hvor meget kontingent klubben har indtjent (eventuelt opdelt efter medlemstype - aktive medlemmer under 18 år, aktive medlemmer over 18 år, medlemmer over 60 år).
+
+Jeg vil som kasserer kunne se en liste over medlemmer, der har ubetalte kontingenter.
+
+Jeg vil som træner kunne se en top 5-liste over resultaterne for hver svømmedisciplin.
+
+Jeg vil som træner kunne tilføje resultater for en ny svømmekonkurrence.
+
+Jeg vil som træner kunne tilføje resultater for individuel personlig træning i hver disciplin.
