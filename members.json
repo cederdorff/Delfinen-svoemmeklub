@@ -7,24 +7,317 @@
       "phone": 98876554,
       "email": "andersandersen@notrealemail.dk",
       "active": true,
-      "activityForm": "Junior-svømmer / senior-svømmer / motionist-svømmer / konkurrence-svømmer",
+      "activityForm": "motionist-svømmer",
+      "disciplines": [],
+      "coach": "",
+      "subscriptionStart": "04/16/2022",
+      "subscriptionEnd": "04/16/2023",
+      "restance": true
+    },
+    "01": {
+      "firstname": "Jørgen",
+      "lastname": "Jørgensen",
+      "age": 62,
+      "phone": 16539719,
+      "email": "jørgenjørgensen@notrealemail.dk",
+      "active": true,
+      "activityForm": "senior-svømmer",
+      "disciplines": [],
+      "coach": "",
+      "subscriptionStart": "07/05/2022",
+      "subscriptionEnd": "07/05/2023",
+      "restance": false
+    },
+    "02": {
+      "firstname": "Alex",
+      "lastname": "Hansen",
+      "age": 15,
+      "phone": 42464185,
+      "email": "alexhansen@notrealemail.dk",
+      "active": true,
+      "activityForm": "konkurrence-svømmer",
+      "disciplines": ["butterfly", "bryst-svømning"],
+      "coach": "bendt bendtsen",
+      "subscriptionStart": "06/26/2022",
+      "subscriptionEnd": "06/26/2023",
+      "restance": false
+    },
+    "03": {
+      "firstname": "Victor",
+      "lastname": "Nielsen",
+      "age": 16,
+      "phone": 45647842,
+      "email": "victornielsen@notrealemail.dk",
+      "active": true,
+      "activityForm": "konkurrence-svømmer",
+      "disciplines": ["crawl", "ryg-crawl", "bryst-svømning"],
+      "coach": "bendt bendtsen",
+      "subscriptionStart": "11/02/2022",
+      "subscriptionEnd": "11/02/2023",
+      "restance": false
+    },
+    "04": {
+      "firstname": "Sofie",
+      "lastname": "Larsen",
+      "age": 19,
+      "phone": 84536406,
+      "email": "sofielarsen@notrealemail.dk",
+      "active": true,
+      "activityForm": "konkurrence-svømmer",
+      "disciplines": ["butterfly", "crawl", "bryst-svømning"],
+      "coach": "bendt bendtsen",
+      "subscriptionStart": "04/20/2023",
+      "subscriptionEnd": "04/20/2024",
+      "restance": false
+    },
+    "05": {
+      "firstname": "Kasper",
+      "lastname": "Kristensen",
+      "age": 45,
+      "phone": 21435441,
+      "email": "kaperkristensen@notrealemail.dk",
+      "active": false,
+      "activityForm": "senior-svømmer",
+      "disciplines": [],
+      "coach": "",
+      "subscriptionStart": "05/08/2022",
+      "subscriptionEnd": "05/08/2023",
+      "restance": true
+    },
+    "06": {
+      "firstname": "Maria",
+      "lastname": "Dahl",
+      "age": 25,
+      "phone": 14049147,
+      "email": "mariadahl@notrealemail.dk",
+      "active": false,
+      "activityForm": "motionist-svømmer",
+      "disciplines": [],
+      "coach": "",
+      "subscriptionStart": "02/28/2023",
+      "subscriptionEnd": "02/28/2024",
+      "restance": false
+    },
+    "07": {
+      "firstname": "Birgit",
+      "lastname": "Ingerslev",
+      "age": 20,
+      "phone": 33924017,
+      "email": "birgitingerslev@notrealemail.dk",
+      "active": true,
+      "activityForm": "konkurrence-svømmer",
+      "disciplines": ["butterfly", "crawl", "ryg-crawl"],
+      "coach": "bendt bendtsen",
+      "subscriptionStart": "12/01/2022",
+      "subscriptionEnd": "12/01/2023",
+      "restance": false
+    },
+    "08": {
+      "firstname": "Gabriel",
+      "lastname": "Lundsten",
+      "age": 21,
+      "phone": 24558846,
+      "email": "gabriellundsten@notrealemail.dk",
+      "active": true,
+      "activityForm": "konkurrence-svømmer",
+      "disciplines": ["crawl", "ryg-crawl", "bryst-svømning"],
+      "coach": "bendt bendtsen",
+      "subscriptionStart": "08/23/2022",
+      "subscriptionEnd": "08/23/2023",
+      "restance": false
+    },
+    "09": {
+      "firstname": "Josefine",
+      "lastname": "sommergaard",
+      "age": 29,
+      "phone": 80220332,
+      "email": "josefinesommergaard@notrealemail.dk",
+      "active": true,
+      "activityForm": "konkurrence-svømmer",
       "disciplines": ["butterfly", "crawl", "ryg-crawl", "bryst-svømning"],
       "coach": "bendt bendtsen",
-      "subscriptionStart": "mm/dd/yyyy",
-      "subscriptionEnd": "mm/dd/yyyy",
+      "subscriptionStart": "11/19/2022",
+      "subscriptionEnd": "11/19/2022",
       "restance": false
     }
   },
 
   "results": {
     "00": {
-      "memberId": "00",
+      "memberId": "02",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 35765,
+      "date": "02/15/2022",
+      "tournamentName": "Svømmecenter Aarhus",
+      "tournament": true
+    },
+    "01": {
+      "memberId": "03",
+      "disciplin": "crawl",
+      "timeMiliSeconds": 62182,
+      "date": "09/28/2021",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "02": {
+      "memberId": "03",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 45764,
+      "date": "06/10/2023",
+      "tournamentName": "Havnebadet København",
+      "tournament": true
+    },
+    "03": {
+      "memberId": "04",
       "disciplin": "butterfly",
-      "timeMiliSeconds": 8495,
-      "date": "mm/dd/yyyy",
-      "tounamentName": "storebælt cup",
+      "timeMiliSeconds": 55773,
+      "date": "12/03/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "04": {
+      "memberId": "04",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 42986,
+      "date": "05/17/2021",
+      "tournamentName": "DGI Huset Vejle",
+      "tournament": true
+    },
+    "05": {
+      "memberId": "04",
+      "disciplin": "crawl",
+      "timeMiliSeconds": 67124,
+      "date": "07/23/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "06": {
+      "memberId": "08",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 28523,
+      "date": "11/08/2022",
+      "tournamentName": "Frederiksberg Svømmehal",
+      "tournament": true
+    },
+    "07": {
+      "memberId": "07",
+      "disciplin": "butterfly",
+      "timeMiliSeconds": 50342,
+      "date": "03/31/2023",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "08": {
+      "memberId": "09",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 26932,
+      "date": "08/12/2021",
+      "tournamentName": "Nordkraft Badeland Aalborg",
+      "tournament": true
+    },
+    "09": {
+      "memberId": "08",
+      "disciplin": "crawl",
+      "timeMiliSeconds": 41874,
+      "date": "04/24/2023",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "10": {
+      "memberId": "09",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 63848,
+      "date": "01/19/2022",
+      "tournamentName": "Svømmeland Herning",
+      "tournament": true
+    },
+    "11": {
+      "memberId": "03",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 55762,
+      "date": "06/01/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "12": {
+      "memberId": "07",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 31913,
+      "date": "11/15/2021",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "13": {
+      "memberId": "08",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 48827,
+      "date": "08/10/2023",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "14": {
+      "memberId": "09",
+      "disciplin": "ryg-crawl",
+      "timeMiliSeconds": 62836,
+      "date": "02/25/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "15": {
+      "memberId": "03",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 42238,
+      "date": "05/17/2021",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "16": {
+      "memberId": "04",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 26905,
+      "date": "09/28/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "17": {
+      "memberId": "08",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 50381,
+      "date": "04/03/2023",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "18": {
+      "memberId": "09",
+      "disciplin": "bryst-svømning",
+      "timeMiliSeconds": 37239,
+      "date": "12/12/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "19": {
+      "memberId": "09",
+      "disciplin": "crawl",
+      "timeMiliSeconds": 35232,
+      "date": "02/15/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "20": {
+      "memberId": "09",
+      "disciplin": "butterfly",
+      "timeMiliSeconds": 60238,
+      "date": "03/31/2022",
+      "tournamentName": "",
+      "tournament": false
+    },
+    "21": {
+      "memberId": "02",
+      "disciplin": "butterfly",
+      "timeMiliSeconds": 29873,
+      "date": "10/08/2022",
+      "tournamentName": "",
       "tournament": false
     }
   }
 }
-
