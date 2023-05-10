@@ -5,15 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="icon" href="#" />
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
     <title>Delfinen svømmeklub</title>
   </head>
   <body>
     <header>
-      <h1>Delfinen svømmeklub</h1>
+      <div class="navbar" id="myNavbar">
+        <div class="dropdown">
+          <button class="dropbtn">
+            ___ <br />
+            ___ <br />
+            ___
+          </button>
+          <div class="dropdown-content">
+            <a href="#home" class="view-link">Home</a>
+            <a href="#news" class="view-link">News</a>
+            <a href="#about" class="view-link">About</a>
+            <a href="#contact" class="view-link">Contact</a>
+          </div>
+        </div>
+      </div>
+      <img id="logo" src="img/logo.png" alt="" />
+      <h1 id="header-text">Delfinen svømmeklub</h1>
+      <img id="logo2" src="img/logo.png" alt="" />
+      <button id="login-btn">Login</button>
     </header>
+    <main>
+      <section id="home" class="view-content">
+        <img id="background-image" src="img/baggrund.jpg" alt="" />
+      </section>
 
-    <script src="script.js"></script>
+      <section id="news" class="view-content">
+        <img id="background-image-other" src="img/baggrund.jpg" alt="" />
+        <div class="forside-text">
+          <h2>News</h2>
+          <li>Ekstra sprøde fritter i cafeteriet</li>
+          <li>Sleske livreddere er et større problem</li>
+        </div>
+      </section>
+
+      <section id="about" class="view-content">
+        <img id="background-image-other" src="img/baggrund.jpg" alt="" />
+        <div class="forside-text">
+          <h2>About</h2>
+          <p>
+            Vi er en super cool svømmeklub, der får dig til at svømme som en
+            delfin
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="view-content">
+        <img id="background-image-other" src="img/baggrund.jpg" alt="" />
+        <div class="forside-text">
+          <h2>Contact</h2>
+          <p>Stillehavsvej 123</p>
+          <p>2000, Frederiksberg</p>
+          <p>Tlf: +45 98765432</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/script.js" type="module"></script>
   </body>
 </html>
