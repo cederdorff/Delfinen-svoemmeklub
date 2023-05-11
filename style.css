@@ -224,3 +224,46 @@ label {
 #password {
   margin-bottom: 12px;
 }
+
+/* ---------- styling for coach page ---------- */
+
+#for-coach-article {
+  text-align: center;
+}
+
+#for-coach-article h2 {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+#for-coach-article table {
+  margin: 0 auto;
+  width: 80%;
+  color: #333;
+}
+
+#for-coach-article th,
+#for-coach-article td {
+  padding: 10px;
+  text-align: left;
+}
+
+#for-coach-article th {
+  background-color: #bfbdc1;
+}
+
+#for-coach-table-junior tr,
+#for-coach-table-senior tr {
+  background-color: #e1e0e2;
+}
+
+#for-coach-table-junior,
+#for-coach-table-senior {
+  background-color: black;
+}
+
+#for-coach-article tr:hover {
+  background-color: #e3e3e3;
+  opacity: 1;
+}
