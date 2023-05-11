@@ -27,6 +27,7 @@ function loginClicked() {
 
 function loginInLoginClicked() {
   addThreeNewLinksToNavBar();
+  document.querySelector("#login").close();
 }
 async function updateMembersTable() {
   members = await getMembers();
