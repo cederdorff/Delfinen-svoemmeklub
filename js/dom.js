@@ -1,13 +1,53 @@
 "use strict";
 
-const passwordChairman = true;
-const passwordTreasurer = false;
-const passwordCoach = false;
+const chairman = document.querySelector("#login-formand");
+const usernameChairman = "1234";
+const passwordChairman = "1234";
 
-// ========== Indsæt tre nye links i navbar ========== //
-function addThreeNewLinksToNavBar() {
-  if (passwordChairman) {
-    const threeNewLinks =
+const treasurer = document.querySelector("#login-kasserer");
+const usernameTreasurer = "1234";
+const passwordTreasurer = "1234";
+
+const coach = document.querySelector("#login-coach");
+const usernameCoach = "1234";
+const passwordCoach = "1234";
+
+// ========== Vælg, hvilken funktion, der kaldes efter login ========== // 
+function decideWhatIsShownInNavbar() {
+  if (
+    chairman.checked
+     &&
+     passwordChairman === document.querySelector("#password").value  &&
+     usernameChairman === document.querySelector("#username").value
+  ) {
+    addNewLinksToNavBarForChairman();
+  }
+
+  else if (
+    treasurer.checked
+    &&
+     passwordTreasurer === document.querySelector("#password").value &&
+     usernameTreasurer === document.querySelector("#username").value
+  ) {
+    addNewLinkToNavBarForTreasurer();
+  }
+
+  else if (coach.checked &&
+     passwordCoach === document.querySelector("#password").value &&
+    usernameCoach === document.querySelector("#username").value) 
+    {
+    addNewLinkToNavBarForCoach();
+  }
+  else {
+    console.log("Ingen login-navne fundet");
+  }
+}
+
+
+
+// ========== Indsæt nye links i navbar for formand ========== //
+function addNewLinksToNavBarForChairman() {
+    const linksForChairman =
       /*html*/
       `<section>
           <a href="#forChairman" class="view-link">For formanden</a>
@@ -17,9 +57,12 @@ function addThreeNewLinksToNavBar() {
 
     document
       .querySelector(".dropdown-content")
-      .insertAdjacentHTML("beforeend", threeNewLinks);
+      .insertAdjacentHTML("beforeend", linksForChairman);
     console.log("Tre nye links sat ind");
-  } else if (passwordTreasurer) {
+}
+// ========== Indsæt links i navbar for kasserer ========== //
+    function addNewLinkToNavBarForTreasurer () {
+  //  if (passwordTreasurer && usernameTreasurer) {
     const linkForTreausurer =
       /*html*/
       `<section>
@@ -30,7 +73,11 @@ function addThreeNewLinksToNavBar() {
       .querySelector(".dropdown-content")
       .insertAdjacentHTML("beforeend", linkForTreausurer);
     console.log("Link for kasserer sat ind");
-  } else if (passwordCoach) {
+   }
+
+   // ========== Indsætlinks i navbar for træner ========== //
+function addNewLinkToNavBarForCoach() {
+  // if (passwordCoach && usernameCoach) {
     const linkForCoach =
       /*html*/
       `<section>
@@ -41,8 +88,8 @@ function addThreeNewLinksToNavBar() {
       .querySelector(".dropdown-content")
       .insertAdjacentHTML("beforeend", linkForCoach);
     console.log("Link for træner sat ind");
-  } else {
-  }
-}
+  } 
 
-export { addThreeNewLinksToNavBar };
+export {
+  decideWhatIsShownInNavbar
+};
