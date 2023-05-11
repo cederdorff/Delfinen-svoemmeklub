@@ -1,6 +1,6 @@
 "use strict";
 
-const passwordChairman = false;
+const passwordChairman = true;
 const passwordTreasurer = false;
 const passwordCoach = false;
 
@@ -40,6 +40,8 @@ function addThreeNewLinksToNavBar() {
       .querySelector(".dropdown-content")
       .insertAdjacentHTML("beforeend", linkForCoach);
     console.log("Link for træner sat ind");
+  } else {
+    
   }
 }
 
