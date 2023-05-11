@@ -34,7 +34,7 @@ function addThreeNewLinksToNavBar() {
     const linkForCoach =
       /*html*/
       `<section>
-          <a href="#forCoasch" class="view-link">For Trænerne</a>
+          <a href="#forCoach" class="view-link">For Trænerne</a>
      `;
 
     document
@@ -42,7 +42,6 @@ function addThreeNewLinksToNavBar() {
       .insertAdjacentHTML("beforeend", linkForCoach);
     console.log("Link for træner sat ind");
   } else {
-    
   }
 }
 
