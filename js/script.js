@@ -47,13 +47,28 @@ function showMembersForCashier(membersList) {
 }
 
 function showMemberForCashier(memberObject) {
-  const htmlCashier = /*html*/`
+
+  correctRestance(memberObject);
+
+  const htmlCashier = /*html*/ `
                     <tr>
-                      <td>${memberObject.firstname}</td>
-                      <td>${memberObject.lastname}</td>
+                      <td>${memberObject.firstname} ${memberObject.lastname}</td>
                       <td>${memberObject.age}</td>
+                      <td>${memberObject.email}</td>
+                      <td>${memberObject.phone}</td>
+                      <td>${memberObject.subscriptionStart}</td>
+                      <td>${memberObject.subscriptionEnd}</td>
+                      <td>${memberObject.restance}</td>
                     </tr>
-  `
+  `;
 
   document.querySelector("#cashier-members-tbody").insertAdjacentHTML("beforeend", htmlCashier);
+}
+
+function correctRestance(memberObject) {
+  if (memberObject.restance) {
+    memberObject.restance = "Ja!"
+  } else {
+    memberObject.restance = "Nej!"
+  }
 }

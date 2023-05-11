@@ -10,6 +10,7 @@
     <title>Delfinen svømmeklub</title>
   </head>
   <body>
+    <!-- Header/nav bar -->
     <header>
       <div class="navbar" id="myNavbar">
         <div class="dropdown">
@@ -31,6 +32,8 @@
       <img id="logo2" src="img/logo.png" alt="" />
       <button id="login-btn">Login</button>
     </header>
+
+    <!-- Login dialog -->
     <dialog id="login">
       <form id="login-form" action="" method="dialog">
         <p id="text-login-som">Log ind som: </p>
@@ -79,21 +82,6 @@
             Vi er en super cool svømmeklub, der får dig til at svømme som en
             delfin
           </p>
-          <!-- test insertion of members (delete the cashier-members div when tested) -->
-          <div id="cashier-members">
-            <table>
-              <thead>
-                <tr>
-                  <th>firstname</th>
-                  <th>lastname</th>
-                  <th>age</th>
-                </tr>
-              </thead>
-              <tbody id="cashier-members-tbody">
-                <!-- members gets inserted here -->
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
 
@@ -111,7 +99,24 @@
       <section id="forChairman" class="view-content">Virker det for formand?</section>
 
       <!-- DOM-manipulation for treasurer-->
-      <section id="forTreasurer" class="view-content">Virker det for kasserer?</section>
+      <section id="forTreasurer" class="view-content">
+        <table id="cashier-members">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Alder</th>
+                  <th>E-mail</th>
+                  <th>Tlf.</th>
+                  <th>Medlemskab start</th>
+                  <th>Medlemskab slut</th>
+                  <th>restance?</th>
+                </tr>
+              </thead>
+              <tbody id="cashier-members-tbody">
+                <!-- members gets inserted here -->
+              </tbody>
+            </table>
+      </section>
 
       <!-- DOM-manipulation for coach-->
       <section id="forCoach" class="view-content">Virker det for træner?</section>
