@@ -40,9 +40,15 @@ function decideWhatIsShownInNavbar() {
   }
   else {
     console.log("Ingen login-navne fundet");
+    document.querySelector("#error-message-log-in").showModal();
+    document.querySelector("#ok-button-error-message").addEventListener("click", closeErrorMessgeLogIn);
   }
 }
 
+function closeErrorMessgeLogIn() {
+  document.querySelector("#error-message-log-in").close();
+  console.log("fejlbesked lukkes");
+}
 
 
 // ========== Indsæt nye links i navbar for formand ========== //
