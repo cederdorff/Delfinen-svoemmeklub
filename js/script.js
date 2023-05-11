@@ -33,4 +33,27 @@ async function updateMembersTable() {
   results = await getResults();
   console.log(members);
   console.log(results);
+  showMembersForCashier(members)
+}
+
+function showMembersForCashier(membersList) {
+  const table = document.querySelector("#cashier-members-tbody");
+  for (let i = 0; i < table.rows.length; i++) {
+    table.deleteRow(i);
+  }
+  for (const member of membersList) {
+    showMemberForCashier(member);
+  }
+}
+
+function showMemberForCashier(memberObject) {
+  const htmlCashier = /*html*/`
+                    <tr>
+                      <td>${memberObject.firstname}</td>
+                      <td>${memberObject.lastname}</td>
+                      <td>${memberObject.age}</td>
+                    </tr>
+  `
+
+  document.querySelector("#cashier-members-tbody").insertAdjacentHTML("beforeend", htmlCashier);
 }

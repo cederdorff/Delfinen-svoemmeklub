@@ -15,9 +15,7 @@ function addThreeNewLinksToNavBar() {
           <a href="#forCoach" class="view-link">For trænerne</a>
      `;
 
-    document
-      .querySelector(".dropdown-content")
-      .insertAdjacentHTML("beforeend", threeNewLinks);
+    document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", threeNewLinks);
     console.log("Tre nye links sat ind");
   } else if (passwordTreasurer) {
     const linkForTreausurer =
@@ -26,9 +24,7 @@ function addThreeNewLinksToNavBar() {
           <a href="#forTreasurer" class="view-link">For kasseren</a>
      `;
 
-    document
-      .querySelector(".dropdown-content")
-      .insertAdjacentHTML("beforeend", linkForTreausurer);
+    document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linkForTreausurer);
     console.log("Link for kasserer sat ind");
   } else if (passwordCoach) {
     const linkForCoach =
@@ -37,9 +33,7 @@ function addThreeNewLinksToNavBar() {
           <a href="#forCoach" class="view-link">For Trænerne</a>
      `;
 
-    document
-      .querySelector(".dropdown-content")
-      .insertAdjacentHTML("beforeend", linkForCoach);
+    document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linkForCoach);
     console.log("Link for træner sat ind");
   } else {
   }
