@@ -6,8 +6,6 @@ import { getMembers } from "./rest-data.js";
 
 let members;
 
-let users;
-
 window.addEventListener("load", startApp);
 
 function startApp() {
@@ -15,9 +13,9 @@ function startApp() {
   initViews();
 
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
-  document
-    .querySelector("#logon-btn")
-    .addEventListener("click", redirectUserByType);
+  //   document
+  //     .querySelector("#logon-btn")
+  //     .addEventListener("click", redirectUserByType);
 }
 
 function loginClicked() {
