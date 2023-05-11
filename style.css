@@ -154,3 +154,73 @@ section {
 h2 {
   text-decoration: underline;
 }
+form#login-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#login {
+  border-color: aquamarine;
+  background-color: cornflowerblue;
+  max-width: 800px;
+  align-content: left;
+}
+
+#logon-btn {
+  background-color: aquamarine;
+  padding: 0.5em 1em;
+  border-color: black;
+  font-size: small;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  align-content: left;
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+#label-login {
+  text-shadow: 2px 2px 2px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+label {
+  text-shadow: 2px 2px 2px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+}
+#forgotten-password {
+  text-shadow: 2px 2px 2px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: underline;
+  grid-row: 5;
+  grid-column: 1;
+}
+#remember-password {
+  text-shadow: 2px 2px 2px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: #333;
+  grid-row: 4;
+  grid-column: 1;
+}
+
+#text-login-som {
+  text-shadow: 2px 2px 2px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 6px;
+}
+#username,
+#password {
+  margin-bottom: 12px;
+}

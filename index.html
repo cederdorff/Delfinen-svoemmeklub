@@ -31,13 +31,31 @@
       <img id="logo2" src="img/logo.png" alt="" />
       <button id="login-btn">Login</button>
     </header>
-
-    <form action="" method="dialog">
-      <label for="username">Username: </label>
-      <input id="username" type="text" />
-      <label for="password">Password: </label>
-      <input id="password" type="password" />
-    </form>
+    <dialog id="login">
+      <form id="login-form" action="" method="dialog">
+        <p id="text-login-som">Log ind som: </p>
+        <div id="radio-btn-selection"><label for="login-coach">Træner</label>
+        <input id="login-coach" type="radio" name="login-som" value="coach"> </input>
+              <label for="login-formand">Formand</label>
+        <input id="login-formand" type="radio" name="login-som" value="formand"> </input>
+        <label for="login-kasserer">Kasserer</label>
+        <input id="login-kasserer" type="radio" name="login-som" value="kasserer"> </input>
+</div>
+        <label id="label-login" for="username">Username: </label>
+        <input id="username" type="text" value="" required />
+        <label id="label-login" for="password" >Password: </label>
+        <input id="password" type="password" value="" required />
+        <div>
+          <div id="remember-password">          
+            <label for="checkbox">Husk min adgangskode</label>
+          <input id="checkbox" type="checkbox" />
+</div>
+        </div>
+        <p id="forgotten-password">Glemt adgangskode?</p>
+        <br />
+        <button id="logon-btn" type="button">Log på</button>
+      </form>
+     </dialog>
 
     <main>
       <section id="home" class="view-content">
