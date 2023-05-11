@@ -31,6 +31,23 @@
       <img id="logo2" src="img/logo.png" alt="" />
       <button id="login-btn">Login</button>
     </header>
+    <article id="dialog">
+      <dialog id="memberDetailedView">
+        <h2 id="dialog-header"></h2>
+        <h3>Personlige oplysninger: </h3>
+        <p id="member-personalInfo"></p>
+        <h3>Svømmerinfo: </h3>
+        <p id="member-swimmerInfo"></p>
+        <h3>Oplysninger om medlemsskab: </h3>
+        <p id="membershipInfo"></p>
+        <form method="dialog">
+          <div id="close-btn" class="buttons">
+            <button id="close-button">Close</button>
+          </div>
+        </form>
+      </dialog>
+    </article>
+
     <dialog id="login">
       <form id="login-form" action="" method="dialog">
         <p id="text-login-som">Log ind som: </p>
@@ -92,8 +109,10 @@
         </div>
       </section>
 
+
       <!-- DOM-manipulation for chairman -->
-      <section id="forChairman" class="view-content">Virker det for formand?</section>
+      <section id="forChairman" class="view-content">
+      </section>
 
       <!-- DOM-manipulation for treasurer-->
       <section id="forTreasurer" class="view-content">Virker det for kasserer?</section>
