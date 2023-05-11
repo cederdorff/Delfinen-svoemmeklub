@@ -53,6 +53,7 @@ function addNewLinksToNavBarForChairman() {
           <a href="#forChairman" class="view-link">For formanden</a>
           <a href="#forTreasurer" class="view-link">For kasseren</a>
           <a href="#forCoach" class="view-link">For trænerne</a>
+        </section>
      `;
 
     document
@@ -67,6 +68,7 @@ function addNewLinksToNavBarForChairman() {
       /*html*/
       `<section>
           <a href="#forTreasurer" class="view-link">For kasseren</a>
+       </section>
      `;
 
     document
@@ -82,6 +84,7 @@ function addNewLinkToNavBarForCoach() {
       /*html*/
       `<section>
           <a href="#forCoach" class="view-link">For Trænerne</a>
+       </section>
      `;
 
     document
