@@ -1,9 +1,11 @@
 "use strict";
 
-const password = true;
+const passwordChairman = false;
+const passwordTreasurer = false;
+const passwordCoach = false;
 
 function addThreeNewLinksToNavBar() {
-  if (password) {
+  if (passwordChairman) {
     const threeNewLinks =
       /*html*/
       `<section>
@@ -16,7 +18,28 @@ function addThreeNewLinksToNavBar() {
       .querySelector(".dropdown-content")
       .insertAdjacentHTML("beforeend", threeNewLinks);
     console.log("Tre nye links sat ind");
-  } else {
+  } else if (passwordTreasurer) {
+    const linkForTreausurer =
+      /*html*/
+      `<section>
+          <a href="#forTreasurer" class="view-link">For kasseren</a>
+     `;
+
+    document
+      .querySelector(".dropdown-content")
+      .insertAdjacentHTML("beforeend", linkForTreausurer);
+    console.log("Link for kasserer sat ind");
+  } else if (passwordCoach) {
+    const linkForCoach =
+      /*html*/
+      `<section>
+          <a href="#forCoasch" class="view-link">For Trænerne</a>
+     `;
+
+    document
+      .querySelector(".dropdown-content")
+      .insertAdjacentHTML("beforeend", linkForCoach);
+    console.log("Link for træner sat ind");
   }
 }
 
