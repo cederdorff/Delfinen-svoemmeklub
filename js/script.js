@@ -1,9 +1,7 @@
 "use strict";
 
 import { initViews } from "./view-router.js";
-import {
-  decideWhatIsShownInNavbar
-} from "./dom.js";
+import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers } from "./rest-data.js";
 
 
@@ -30,7 +28,7 @@ function loginClicked() {
 }
 
 function loginInLoginClicked() {
-  decideWhatIsShownInNavbar();
+  determineWhatIsShownInNavbar();
   document.querySelector("#login").close();
 }
 async function updateMembersTable() {
