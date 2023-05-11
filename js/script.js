@@ -13,16 +13,21 @@ function startApp() {
   initViews();
 
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
+  document
+    .querySelector("#logon-btn")
+    .addEventListener("click", loginInLoginClicked);
 }
 
 function loginClicked() {
   document.querySelector("#login").showModal();
   document.querySelector("#login").scrollTop = 0;
-  addThreeNewLinksToNavBar();
 
   updateMembersTable();
 }
 
+function loginInLoginClicked() {
+  addThreeNewLinksToNavBar();
+}
 async function updateMembersTable() {
   members = await getMembers();
   console.log(members);
