@@ -4,6 +4,7 @@ const passwordChairman = true;
 const passwordTreasurer = false;
 const passwordCoach = false;
 
+// ========== Indsæt tre nye links i navbar ========== //
 function addThreeNewLinksToNavBar() {
   if (passwordChairman) {
     const threeNewLinks =
