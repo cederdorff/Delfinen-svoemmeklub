@@ -15,11 +15,6 @@ async function startApp() {
   initViews();
   updateMembersTable();
 
-  // fjern efter test
-  members = await getMembers();
-  results = await getResults();
-  showCompetitiveMembers(members, results);
-
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
   document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
 }
