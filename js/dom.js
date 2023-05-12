@@ -67,24 +67,26 @@ function addNewLinkToNavBarForCashier() {
        </section>
      `;
 
-    document
-      .querySelector(".dropdown-content")
-      .insertAdjacentHTML("beforeend", linkForTreausurer);
-    console.log("Link for kasserer sat ind");
-  } else if (passwordCoach) {
-    const linkForCoach =
-      /*html*/
-      `<section>
+  document
+    .querySelector(".dropdown-content")
+    .insertAdjacentHTML("beforeend", linkForCashier);
+  console.log("Link for kasserer sat ind");
+}
+
+// ========== Indsætlinks i navbar for træner ========== //
+function addNewLinkToNavBarForCoach() {
+  // if (passwordCoach && usernameCoach) {
+  const linkForCoach =
+    /*html*/
+    `<section>
           <a href="#forCoach" class="view-link">For Trænerne</a>
        </section>
      `;
 
-    document
-      .querySelector(".dropdown-content")
-      .insertAdjacentHTML("beforeend", linkForCoach);
-    console.log("Link for træner sat ind");
-  } else {
-  }
+  document
+    .querySelector(".dropdown-content")
+    .insertAdjacentHTML("beforeend", linkForCoach);
+  console.log("Link for træner sat ind");
 }
 
 export { determineWhatIsShownInNavbar };
