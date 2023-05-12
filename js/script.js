@@ -169,6 +169,7 @@ function showMembersForCashier(membersList) {
   }
 }
 
+//function for creating row member element
 function showMemberForCashier(memberObject) {
   correctRestance(memberObject);
 
@@ -189,6 +190,7 @@ function showMemberForCashier(memberObject) {
   // adding evenlistener for showing dialog view on table row subject
   document.querySelector("#cashier-members-tbody tr:last-child").addEventListener("click", cashierMemberClicked);
 
+  //function for creating dialog view(cashier)
   function cashierMemberClicked(event) {
     event.preventDefault;
 
@@ -209,10 +211,12 @@ function showMemberForCashier(memberObject) {
   }
 }
 
+//close cashier dialog
 function closeCashierDialog() {
   document.querySelector("#cashier-dialog").close();
 }
 
+//correcting restance to yes/no instead of true/false
 function correctRestance(memberObject) {
   if (memberObject.restance) {
     memberObject.restance = "Ja!";
@@ -221,9 +225,10 @@ function correctRestance(memberObject) {
   }
 }
 
+//inserting html article element for accounting overview
 function insertCashierAccountingSection() {
-  let budgetteret = calculateBudgetteret(members);
-  let realiseret = calculateRealiseret(members);
+  let budgetteret = calculateAllSubscriptions(members);
+  let realiseret = calculateRestance(members);
   let samlet = budgetteret - realiseret;
 
   const accountingSection = /*html*/ `
@@ -238,9 +243,9 @@ function insertCashierAccountingSection() {
   document.querySelector("#forCashier").insertAdjacentHTML("afterbegin", accountingSection);
 }
 
-function calculateBudgetteret(membersList) {
+//calculating sum of all subscriptions
+function calculateAllSubscriptions(membersList) {
   let result = 0;
-  console.log(membersList);
 
   for (let i = 0; i < membersList.length; i++) {
     const element = membersList[i];
@@ -262,7 +267,8 @@ function calculateBudgetteret(membersList) {
   return result;
 }
 
-function calculateRealiseret(membersList) {
+//calculating sum of members in restance
+function calculateRestance(membersList) {
   let result = 0;
 
   for (let i = 0; i < membersList.length; i++) {
