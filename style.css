@@ -224,3 +224,147 @@ label {
 #password {
   margin-bottom: 12px;
 }
+
+table,
+th {
+  border: 2px solid aquamarine;
+  width: auto;
+  align-items: center;
+  text-shadow: 4px 4px 4px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #070707;
+  margin-top: 6px;
+  background-color: cornflowerblue;
+  padding: 4px;
+}
+td {
+  border: 1px solid aquamarine;
+  width: auto;
+  align-items: center;
+  text-shadow: 4px 4px 4px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #070707;
+  margin-top: 6px;
+}
+#forChairman {
+  background-image: url(img/baggrund.jpg);
+  background-size: 100%;
+  background-position: center;
+  width: 100%;
+  height: cover;
+  padding-left: 100px;
+  padding-top: 50px;
+  padding-bottom: 250px;
+}
+
+.btn-update,
+.btn-delete {
+  background-color: aquamarine;
+  padding: 0.5em 1em;
+  border-color: black;
+  font-size: small;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  align-content: left;
+  width: 100%;
+}
+.btn-create {
+  background-color: aquamarine;
+  padding: 0.5em 1em;
+  border-color: black;
+  font-size: small;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  align-content: left;
+  width: 20%;
+}
+
+h1 {
+  text-shadow: 2px 2px 2px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  color: #333;
+}
+
+.table-item:hover {
+  box-shadow: 5px 5px 5px 5px aquamarine;
+}
+#memberDetailedView {
+  top: 30%;
+  border: 2px solid aquamarine;
+  width: 400px;
+  align-items: center;
+  text-shadow: 4px 4px 4px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #070707;
+  margin-top: 6px;
+  background-color: cornflowerblue;
+  padding-left: 40px;
+}
+
+h3 {
+  margin-bottom: 0%;
+}
+
+#close-button {
+  background-color: aquamarine;
+  padding: 0.5em 1em;
+  border-color: black;
+  font-size: small;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  align-content: left;
+  width: 100%;
+}
+
+/* ---------- styling for coach page ---------- */
+
+#for-coach-article {
+  text-align: center;
+}
+
+#for-coach-article h2 {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+#for-coach-article table {
+  margin: 0 auto;
+  width: 80%;
+  color: #333;
+}
+
+#for-coach-article th,
+#for-coach-article td {
+  padding: 10px;
+  text-align: left;
+}
+
+#for-coach-article th {
+  background-color: #bfbdc1;
+}
+
+#for-coach-table-junior tr,
+#for-coach-table-senior tr {
+  background-color: #e1e0e2;
+}
+
+#for-coach-table-junior,
+#for-coach-table-senior {
+  background-color: black;
+}
+
+#for-coach-article tr:hover {
+  background-color: #e3e3e3;
+  opacity: 1;
+}

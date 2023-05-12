@@ -30,21 +30,37 @@
       <img id="logo" src="img/logo.png" alt="" />
       <h1 id="header-text">Delfinen svømmeklub</h1>
       <img id="logo2" src="img/logo.png" alt="" />
+      <!---------login button------------->
       <button id="login-btn">Login</button>
     </header>
+    <article id="dialog">
+      <dialog id="memberDetailedView">
+        <h2 id="dialog-header"></h2>
+        <h3>Personlige oplysninger: </h3>
+        <p id="member-personalInfo"></p>
+        <h3>Svømmerinfo: </h3>
+        <p id="member-swimmerInfo"></p>
+        <h3>Oplysninger om medlemsskab: </h3>
+        <p id="membershipInfo"></p>
+        <form method="dialog">
+          <div id="close-btn" class="buttons">
+            <button id="close-button">Close</button>
+          </div>
+        </form>
+      </dialog>
+    </article>
 
-    <!-- Login dialog -->
+    <!-----------login dialog ------------->
     <dialog id="login">
       <form id="login-form" action="" method="dialog">
         <p id="text-login-som">Log ind som: </p>
-        <div id="radio-btn-selection">
-          <label for="login-coach">Træner</label>
-          <input id="login-coach" type="radio" name="login-som" value="coach"> </input>
-          <label for="login-formand">Formand</label>
-          <input id="login-formand" type="radio" name="login-som" value="formand"> </input>
-          <label for="login-kasserer">Kasserer</label>
-          <input id="login-kasserer" type="radio" name="login-som" value="kasserer"> </input>
-        </div>
+      <div id="radio-btn-selection"><label for="login-coach">Træner</label>
+        <input id="login-coach" type="radio" name="login-som" value="coach"> </input>
+        <label for="login-formand">Formand</label>
+        <input id="login-formand" type="radio" name="login-som" value="formand"> </input>
+        <label for="login-kasserer">Kasserer</label>
+        <input id="login-kasserer" type="radio" name="login-som" value="kasserer"> </input>
+      </div>
         <label id="label-login" for="username">Username: </label>
         <input id="username" type="text" value="" required />
         <label id="label-login" for="password" >Password: </label>
@@ -52,14 +68,51 @@
         <div>
           <div id="remember-password">          
             <label for="checkbox">Husk min adgangskode</label>
-            <input id="checkbox" type="checkbox" />
-          </div>
+          <input id="checkbox" type="checkbox" />
         </div>
+      </div>
         <p id="forgotten-password">Glemt adgangskode?</p>
         <br />
         <button id="logon-btn" type="button">Log på</button>
       </form>
      </dialog>
+     
+     <!----------error message log-in--------->
+     <dialog id="error-message-log-in">
+        <p>Forkert brugernavn eller log-in. Prøv venligst igen</p>
+        <button id="ok-button-error-message">Ok</button>
+     </dialog> 
+
+<!-- Create member dialog-->
+<dialog id="create-member">
+      <button id="create-close-btn">X</button>
+      <h2>Create Post</h2>
+      <br /><br />
+
+      <form
+        action=""
+        method="POST"
+        id="form-create"
+      >
+        <label for="firstname-create">Title</label>
+        <input id="firstname-create" name="title" type="text" required />
+        <label for="lastname-create">Title</label>
+        <input id="lastname-create" name="title" type="text" required />
+
+        <label for="body-create">Description</label>
+        <textarea name="body" id="" cols="30" rows="10"></textarea>
+        <br />
+        <fieldset>
+          <legend>Picture</legend>
+          <img id="preview-image-create" src="" alt="" />
+          <input id="image-create" name="image" type="file" accept="image/*" />
+        </fieldset>
+
+        <input id="submit-btn-create" type="submit" />
+        <input id="reset-btn-create" type="reset" />
+      </form>
+    </dialog>
+
 
     <main>
       <section id="home" class="view-content">
@@ -96,8 +149,10 @@
         </div>
       </section>
 
+
       <!-- DOM-manipulation for chairman -->
-      <section id="forChairman" class="view-content">Virker det for formand?</section>
+      <section id="forChairman" class="view-content">
+      </section>
 
       <!-- DOM-manipulation for treasurer/cashier-->
       <section id="forTreasurer" class="view-content">
@@ -120,7 +175,10 @@
       </section>
 
       <!-- DOM-manipulation for coach-->
-      <section id="forCoach" class="view-content">Virker det for træner?</section>
+      <section id="for-coach-section" class="view-content">
+        <article id="for-coach-article">
+        </article>
+      </section>
     </main>
 
     <script src="./js/script.js" type="module"></script>
