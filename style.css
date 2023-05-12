@@ -340,7 +340,8 @@ h3 {
 }
 
 #for-coach-article table,
-#forCashier table, #accounting-section {
+#forCashier table,
+#accounting-section {
   margin: 0 auto;
   width: 80%;
   color: #333;
@@ -366,7 +367,8 @@ h3 {
   background-color: black;
 }
 
-#for-coach-article tr:hover, #cashier-members tr:hover {
+#for-coach-article tr:hover,
+#cashier-members tr:hover {
   background-color: #e3e3e3;
   opacity: 1;
 }
