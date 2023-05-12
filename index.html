@@ -29,18 +29,37 @@
       <img id="logo" src="img/logo.png" alt="" />
       <h1 id="header-text">Delfinen svømmeklub</h1>
       <img id="logo2" src="img/logo.png" alt="" />
+      <!---------login button------------->
       <button id="login-btn">Login</button>
     </header>
+    <article id="dialog">
+      <dialog id="memberDetailedView">
+        <h2 id="dialog-header"></h2>
+        <h3>Personlige oplysninger: </h3>
+        <p id="member-personalInfo"></p>
+        <h3>Svømmerinfo: </h3>
+        <p id="member-swimmerInfo"></p>
+        <h3>Oplysninger om medlemsskab: </h3>
+        <p id="membershipInfo"></p>
+        <form method="dialog">
+          <div id="close-btn" class="buttons">
+            <button id="close-button">Close</button>
+          </div>
+        </form>
+      </dialog>
+    </article>
+
+    <!-----------login dialog ------------->
     <dialog id="login">
       <form id="login-form" action="" method="dialog">
         <p id="text-login-som">Log ind som: </p>
-        <div id="radio-btn-selection"><label for="login-coach">Træner</label>
+      <div id="radio-btn-selection"><label for="login-coach">Træner</label>
         <input id="login-coach" type="radio" name="login-som" value="coach"> </input>
-              <label for="login-formand">Formand</label>
+        <label for="login-formand">Formand</label>
         <input id="login-formand" type="radio" name="login-som" value="formand"> </input>
         <label for="login-kasserer">Kasserer</label>
         <input id="login-kasserer" type="radio" name="login-som" value="kasserer"> </input>
-</div>
+      </div>
         <label id="label-login" for="username">Username: </label>
         <input id="username" type="text" value="" required />
         <label id="label-login" for="password" >Password: </label>
@@ -49,13 +68,19 @@
           <div id="remember-password">          
             <label for="checkbox">Husk min adgangskode</label>
           <input id="checkbox" type="checkbox" />
-</div>
         </div>
+      </div>
         <p id="forgotten-password">Glemt adgangskode?</p>
         <br />
         <button id="logon-btn" type="button">Log på</button>
       </form>
      </dialog>
+     
+     <!----------error message log-in--------->
+     <dialog id="error-message-log-in">
+        <p>Forkert brugernavn eller log-in. Prøv venligst igen</p>
+        <button id="ok-button-error-message">Ok</button>
+     </dialog> 
 
     <main>
       <section id="home" class="view-content">
@@ -92,8 +117,10 @@
         </div>
       </section>
 
+
       <!-- DOM-manipulation for chairman -->
-      <section id="forChairman" class="view-content">Virker det for formand?</section>
+      <section id="forChairman" class="view-content">
+      </section>
 
       <!-- DOM-manipulation for treasurer-->
       <section id="forTreasurer" class="view-content">Virker det for kasserer?</section>
