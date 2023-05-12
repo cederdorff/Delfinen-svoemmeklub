@@ -340,7 +340,7 @@ h3 {
 }
 
 #for-coach-article table,
-#forCashier table {
+#forCashier table, #accounting-section {
   margin: 0 auto;
   width: 80%;
   color: #333;

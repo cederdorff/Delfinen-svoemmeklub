@@ -64,7 +64,6 @@ function addNewLinkToNavBarForCashier() {
      `;
 
   document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linkForCashier);
-  console.log("Link for kasserer sat ind");
 }
 
 // ========== Indsætlinks i navbar for træner ========== //

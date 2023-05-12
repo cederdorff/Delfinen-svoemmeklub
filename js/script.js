@@ -153,10 +153,17 @@ function createMemberClicked() {
 // ========== Cashier functions ========== //
 
 function showMembersForCashier(membersList) {
+  //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
+
+  insertCashierAccountingSection();
+
+  //alle rows i tabel slettes
   for (let i = 0; i < table.rows.length; i++) {
     table.deleteRow(i);
   }
+
+  //en row skabes i table for hvert medlem i members array
   for (const member of membersList) {
     showMemberForCashier(member);
   }
@@ -173,19 +180,22 @@ function showMemberForCashier(memberObject) {
                       <td>${memberObject.phone}</td>
                       <td>${memberObject.subscriptionStart}</td>
                       <td>${memberObject.subscriptionEnd}</td>
-                      <td>${memberObject.restance}</td>
+                      <td>${memberObject.restance} ${memberObject.active}</td>
                     </tr>
   `;
 
   document.querySelector("#cashier-members-tbody").insertAdjacentHTML("beforeend", htmlCashier);
 
+  // adding evenlistener for showing dialog view on table row subject
   document.querySelector("#cashier-members-tbody tr:last-child").addEventListener("click", cashierMemberClicked);
 
   function cashierMemberClicked(event) {
-    // open dialog and call another function to fill dialog window
     event.preventDefault;
+
+    // adding evenlistener for close btn in dialog view
     document.querySelector("#cashier-dialog-btn-close").addEventListener("click", closeCashierDialog);
 
+    // setting textcontent value equal to clicked member
     document.querySelector("#cashier-dialog-name").textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
     document.querySelector("#cashier-dialog-age").textContent = `Alder: ${memberObject.age}`;
     document.querySelector("#cashier-dialog-phone").textContent = `Telefon: ${memberObject.phone}`;
@@ -194,6 +204,7 @@ function showMemberForCashier(memberObject) {
     document.querySelector("#cashier-dialog-sub-end").textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
     document.querySelector("#cashier-dialog-restance").textContent = `Restance: ${memberObject.restance}`;
 
+    // show modal/dialog
     document.querySelector("#cashier-dialog").showModal();
   }
 }
@@ -208,4 +219,68 @@ function correctRestance(memberObject) {
   } else {
     memberObject.restance = "Nej!";
   }
+}
+
+function insertCashierAccountingSection() {
+  let budgetteret = calculateBudgetteret(members);
+  let realiseret = calculateRealiseret(members);
+  let samlet = budgetteret - realiseret;
+
+  const accountingSection = /*html*/ `
+                          <article id="accounting-section">
+                            <h2>Kontingent oversigt:</h2>
+                            <p>Kontingenter: ${budgetteret}</p>
+                            <p>Restance: ${realiseret}</p>
+                            <p>samlet: ${samlet}</p>
+                          </article>
+  `;
+
+  document.querySelector("#forCashier").insertAdjacentHTML("afterbegin", accountingSection);
+}
+
+function calculateBudgetteret(membersList) {
+  let result = 0;
+  console.log(membersList);
+
+  for (let i = 0; i < membersList.length; i++) {
+    const element = membersList[i];
+    if (element.active && element.age < 18) {
+      // active u18 =+ 1000,-
+      result += 1000;
+    } else if (element.active && element.age >= 18 && element.age <= 60) {
+      // active 18+ =+ 1600,-
+      result += 1600;
+    } else if (element.active && element.age > 60) {
+      // active 60+ = (1600 * 0,75) = 1200,-
+      result += 1200;
+    } else if (!element.active) {
+      // inactive = 500,-
+      result += 500;
+    }
+  }
+
+  return result;
+}
+
+function calculateRealiseret(membersList) {
+  let result = 0;
+
+  for (let i = 0; i < membersList.length; i++) {
+    const element = membersList[i];
+    if (element.restance && element.active && element.age < 18) {
+      // active u18 =+ 1000,-
+      result += 1000;
+    } else if (element.restance && element.active && element.age >= 18 && element.age <= 60) {
+      // active 18+ =+ 1600,-
+      result += 1600;
+    } else if (element.restance && element.active && element.age > 60) {
+      // active 60+ = (1600 * 0,75) = 1200,-
+      result += 1200;
+    } else if (element.restance && !element.active) {
+      // inactive = 500,-
+      result += 500;
+    }
+  }
+
+  return result;
 }
