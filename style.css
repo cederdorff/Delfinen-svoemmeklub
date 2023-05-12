@@ -338,7 +338,7 @@ h3 {
   color: #333;
 }
 
-#for-coach-article table {
+#for-coach-article table, #forCashier table {
   margin: 0 auto;
   width: 80%;
   color: #333;

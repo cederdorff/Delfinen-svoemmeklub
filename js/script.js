@@ -25,9 +25,7 @@ async function startApp() {
     dialog.close();
   });
 
-  document
-    .querySelector(".btn-create")
-    .addEventListener("click", createMemberClicked);
+  document.querySelector(".btn-create").addEventListener("click", createMemberClicked);
 }
 
 function loginClicked() {
@@ -40,7 +38,7 @@ async function loginInLoginClicked() {
   results = await getResults();
   determineWhatIsShownInNavbar();
   // tilføjet event listener for ny lavet coach knap.
-  document.querySelector("#for-coach-btn").addEventListener("click", showCompetitiveMembers(members, results));
+  // document.querySelector("#for-coach-btn").addEventListener("click", showCompetitiveMembers(members, results));
   document.querySelector("#login").close();
 }
 
@@ -50,6 +48,8 @@ async function updateMembersTable() {
   console.log(members);
   console.log(results);
   showMembersChairman();
+  showMembersForCashier(members);
+  showCompetitiveMembers(members, results);
 }
 
 function showMembersChairman() {
@@ -147,7 +147,7 @@ document.querySelector("#forChairman").insertAdjacentHTML(
 function createMemberClicked() {
   document.querySelector("#create-member").showModal();
   document.querySelector("#create-member").scrollTop = 0;
-  showMembersForCashier(members)
+  showMembersForCashier(members);
 }
 
 function showMembersForCashier(membersList) {
@@ -161,7 +161,6 @@ function showMembersForCashier(membersList) {
 }
 
 function showMemberForCashier(memberObject) {
-
   correctRestance(memberObject);
 
   const htmlCashier = /*html*/ `
@@ -181,8 +180,8 @@ function showMemberForCashier(memberObject) {
 
 function correctRestance(memberObject) {
   if (memberObject.restance) {
-    memberObject.restance = "Ja!"
+    memberObject.restance = "Ja!";
   } else {
-    memberObject.restance = "Nej!"
+    memberObject.restance = "Nej!";
   }
 }
