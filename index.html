@@ -82,6 +82,37 @@
         <button id="ok-button-error-message">Ok</button>
      </dialog> 
 
+<!-- Create member dialog-->
+<dialog id="create-member">
+      <button id="create-close-btn">X</button>
+      <h2>Create Post</h2>
+      <br /><br />
+
+      <form
+        action=""
+        method="POST"
+        id="form-create"
+      >
+        <label for="firstname-create">Title</label>
+        <input id="firstname-create" name="title" type="text" required />
+        <label for="lastname-create">Title</label>
+        <input id="lastname-create" name="title" type="text" required />
+
+        <label for="body-create">Description</label>
+        <textarea name="body" id="" cols="30" rows="10"></textarea>
+        <br />
+        <fieldset>
+          <legend>Picture</legend>
+          <img id="preview-image-create" src="" alt="" />
+          <input id="image-create" name="image" type="file" accept="image/*" />
+        </fieldset>
+
+        <input id="submit-btn-create" type="submit" />
+        <input id="reset-btn-create" type="reset" />
+      </form>
+    </dialog>
+
+
     <main>
       <section id="home" class="view-content">
         <img id="background-image" src="img/baggrund.jpg" alt="" />

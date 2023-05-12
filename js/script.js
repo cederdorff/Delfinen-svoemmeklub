@@ -18,11 +18,16 @@ async function startApp() {
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
   document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
 
+  //-- Eventlistener på knap i detailedView for formanden, som lukker vinduet ---//
   const closeButton = document.querySelector("#close-button");
   closeButton.addEventListener("click", function () {
     const dialog = document.querySelector("#memberDetailedView");
     dialog.close();
   });
+
+  document
+    .querySelector(".btn-create")
+    .addEventListener("click", createMemberClicked);
 }
 
 function loginClicked() {
@@ -136,3 +141,10 @@ document.querySelector("#forChairman").insertAdjacentHTML(
         </table>
         `
 );
+
+//-- Create member //
+
+function createMemberClicked() {
+  document.querySelector("#create-member").showModal();
+  document.querySelector("#create-member").scrollTop = 0;
+}
