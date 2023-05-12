@@ -295,6 +295,7 @@ h1 {
 .table-item:hover {
   box-shadow: 5px 5px 5px 5px aquamarine;
 }
+
 #memberDetailedView {
   top: 30%;
   border: 2px solid aquamarine;
@@ -338,7 +339,8 @@ h3 {
   color: #333;
 }
 
-#for-coach-article table, #forCashier table {
+#for-coach-article table,
+#forCashier table {
   margin: 0 auto;
   width: 80%;
   color: #333;
@@ -364,7 +366,7 @@ h3 {
   background-color: black;
 }
 
-#for-coach-article tr:hover {
+#for-coach-article tr:hover, #cashier-members tr:hover {
   background-color: #e3e3e3;
   opacity: 1;
 }

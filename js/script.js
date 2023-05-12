@@ -150,6 +150,8 @@ function createMemberClicked() {
   showMembersForCashier(members);
 }
 
+// ========== Cashier functions ========== //
+
 function showMembersForCashier(membersList) {
   const table = document.querySelector("#cashier-members-tbody");
   for (let i = 0; i < table.rows.length; i++) {
@@ -176,6 +178,28 @@ function showMemberForCashier(memberObject) {
   `;
 
   document.querySelector("#cashier-members-tbody").insertAdjacentHTML("beforeend", htmlCashier);
+
+  document.querySelector("#cashier-members-tbody tr:last-child").addEventListener("click", cashierMemberClicked);
+
+  function cashierMemberClicked(event) {
+    // open dialog and call another function to fill dialog window
+    event.preventDefault;
+    document.querySelector("#cashier-dialog-btn-close").addEventListener("click", closeCashierDialog);
+
+    document.querySelector("#cashier-dialog-name").textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
+    document.querySelector("#cashier-dialog-age").textContent = `Alder: ${memberObject.age}`;
+    document.querySelector("#cashier-dialog-phone").textContent = `Telefon: ${memberObject.phone}`;
+    document.querySelector("#cashier-dialog-mail").textContent = `E-mail: ${memberObject.email}`;
+    document.querySelector("#cashier-dialog-sub-start").textContent = `Tilmeldt: ${memberObject.subscriptionStart}`;
+    document.querySelector("#cashier-dialog-sub-end").textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
+    document.querySelector("#cashier-dialog-restance").textContent = `Restance: ${memberObject.restance}`;
+
+    document.querySelector("#cashier-dialog").showModal();
+  }
+}
+
+function closeCashierDialog() {
+  document.querySelector("#cashier-dialog").close();
 }
 
 function correctRestance(memberObject) {
