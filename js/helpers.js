@@ -10,4 +10,15 @@ function prepareMembersData(dataObject) {
   return membersArray;
 }
 
-export { prepareMembersData };
+function prepareResultsData(dataObject) {
+  const resultsArray = [];
+
+  for (const key in dataObject) {
+    const result = dataObject[key];
+    result.id = key;
+    resultsArray.push(result);
+  }
+  return resultsArray;
+}
+
+export { prepareMembersData, prepareResultsData };
