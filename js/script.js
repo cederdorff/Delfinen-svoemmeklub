@@ -2,7 +2,6 @@
 
 import { initViews } from "./view-router.js";
 import { determineWhatIsShownInNavbar } from "./dom.js";
-import { getMembers } from "./rest-data.js";
 import { getMembers, getResults } from "./rest-data.js";
 
 
