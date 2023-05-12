@@ -1,8 +1,10 @@
 "use strict";
 
 import { initViews } from "./view-router.js";
-import { addThreeNewLinksToNavBar } from "./dom.js";
+import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
+
+
 
 let members;
 let results;
@@ -37,7 +39,7 @@ function loginClicked() {
 }
 
 function loginInLoginClicked() {
-  addThreeNewLinksToNavBar();
+  determineWhatIsShownInNavbar();
   document.querySelector("#login").close();
 }
 async function updateMembersTable() {
