@@ -73,7 +73,7 @@ function addNewLinkToNavBarForCoach() {
   const linkForCoach =
     /*html*/
     `<section>
-          <a href="#forCoach" class="view-link">For Trænerne</a>
+          <a href="#for-coach-section" class="view-link" id="for-coach-btn">For Trænerne</a>
        </section>
      `;
 
