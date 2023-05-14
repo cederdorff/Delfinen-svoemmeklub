@@ -1,5 +1,3 @@
-"use strict";
-
 const chairman = document.querySelector("#login-formand");
 const cashier = document.querySelector("#login-kasserer");
 const coach = document.querySelector("#login-coach");

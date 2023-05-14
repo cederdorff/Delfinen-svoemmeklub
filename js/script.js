@@ -4,6 +4,7 @@ import { initViews } from "./view-router.js";
 import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { showCompetitiveMembers } from "./coach.js";
+// import { inputSearchChanged } from "./mini-helpers.js";
 
 let members;
 let results;
@@ -16,7 +17,18 @@ async function startApp() {
   updateMembersTable();
 
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
-  document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
+  document
+    .querySelector("#logon-btn")
+    .addEventListener("click", loginInLoginClicked);
+
+  // -- Adding eventlisteners for search functions
+  // --Eventlisteners for search functions for Cashier
+   document
+     .querySelector("#input-search")
+     .addEventListener("keyup", inputSearchChangedForCashier);
+  document
+    .querySelector("#input-search")
+    .addEventListener("search", inputSearchChangedForCashier);
 
   //-- Eventlistener på knap i detailedView for formanden, som lukker vinduet ---//
   const closeButton = document.querySelector("#close-button");
@@ -25,7 +37,9 @@ async function startApp() {
     dialog.close();
   });
 
-  document.querySelector(".btn-create").addEventListener("click", createMemberClicked);
+  document
+    .querySelector(".btn-create")
+    .addEventListener("click", createMemberClicked);
 }
 
 function loginClicked() {
@@ -153,11 +167,11 @@ function createMemberClicked() {
 // ========== Cashier functions ========== //
 
 function showMembersForCashier(membersList) {
+  document.querySelector("#cashier-members-tbody").innerHTML = "";
   //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
 
   insertCashierAccountingSection();
-
   //alle rows i tabel slettes
   for (let i = 0; i < table.rows.length; i++) {
     table.deleteRow(i);
@@ -230,7 +244,6 @@ function insertCashierAccountingSection() {
   let budgetteret = calculateAllSubscriptions(members);
   let realiseret = calculateRestance(members);
   let samlet = budgetteret - realiseret;
-
   const accountingSection = /*html*/ `
                           <article id="accounting-section">
                             <h2>Kontingent oversigt:</h2>
@@ -290,3 +303,27 @@ function calculateRestance(membersList) {
 
   return result;
 }
+
+
+// ========== Search functions for cashier========== //
+function inputSearchChangedForCashier() {
+  const value = this.value;
+  const membersToShowForCashier = searchMembersForCashier(value); // send 'members' som argument
+  showMembersForCashier(membersToShowForCashier);
+}
+
+function searchMembersForCashier(searchValue) {
+  // tag 'members' som argument
+  searchValue = searchValue.toLowerCase();
+
+  const results = members.filter(checkNameForCashier);
+
+  function checkNameForCashier(member) {
+    const name = member.firstname.toLowerCase();
+    return name.includes(searchValue);
+  }
+
+  return results;
+}
+
+// export { inputSearchChanged };
