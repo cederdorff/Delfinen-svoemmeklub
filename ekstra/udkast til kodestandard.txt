@@ -1,0 +1,12 @@
+Udkast til kodestandard:
+
+- Line length: 120.
+- Dialog-elementer i HTML-fil lægges i bunden af fil, lige over "script src"
+- Benyt engelske navne
+	- Formand: Chairman 
+	- Kasserer: Cashier
+	- Træner: Coach 
+- Sæt overskrifter over hver funktion i kommentarer i JS-filer og sæt også gerne små overskrifter på dele i CSS-fil og HTML-fil.
+- Navngiv funktioner så præcist som muligt eks. showMembersForCashier frem for showMembers 
+- Benyt let eller const i stedet for var
+- Arrow-functions og anonyme funktioner?

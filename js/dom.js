@@ -45,7 +45,7 @@ function addNewLinksToNavBarForChairman() {
     /*html*/
     `<section>
           <a href="#forChairman" class="view-link">For formanden</a>
-          <a href="#forTreasurer" class="view-link">For kasseren</a>
+          <a href="#forCashier" class="view-link">For kasseren</a>
           <a href="#for-coach-section" class="view-link" id="for-coach-btn">For trænerne</a>
         </section>
      `;
@@ -64,7 +64,6 @@ function addNewLinkToNavBarForCashier() {
      `;
 
   document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linkForCashier);
-  console.log("Link for kasserer sat ind");
 }
 
 // ========== Indsætlinks i navbar for træner ========== //
@@ -73,7 +72,7 @@ function addNewLinkToNavBarForCoach() {
   const linkForCoach =
     /*html*/
     `<section>
-          <a href="#for-coach-section" class="view-link" id="for-coach-btn">For Trænerne</a>
+          <a href="#for-coach-section" class="view-link">For Trænerne</a>
        </section>
      `;
 

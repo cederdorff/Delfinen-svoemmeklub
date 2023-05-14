@@ -10,6 +10,7 @@
     <title>Delfinen svømmeklub</title>
   </head>
   <body>
+    <!-- Header/nav bar -->
     <header>
       <div class="navbar" id="myNavbar">
         <div class="dropdown">
@@ -153,8 +154,25 @@
       <section id="forChairman" class="view-content">
       </section>
 
-      <!-- DOM-manipulation for treasurer-->
-      <section id="forTreasurer" class="view-content">Virker det for kasserer?</section>
+      <!-- DOM-manipulation for treasurer/cashier-->
+      <section id="forCashier" class="view-content">
+        <table id="cashier-members">
+              <thead>
+                <tr>
+                  <th>Navn</th>
+                  <th>Alder</th>
+                  <th>E-mail</th>
+                  <th>Tlf.</th>
+                  <th>Medlemskab start</th>
+                  <th>Medlemskab slut</th>
+                  <th>restance?</th>
+                </tr>
+              </thead>
+              <tbody id="cashier-members-tbody">
+                <!-- members gets inserted here -->
+              </tbody>
+            </table>
+      </section>
 
       <!-- DOM-manipulation for coach-->
       <section id="for-coach-section" class="view-content">
@@ -162,6 +180,23 @@
         </article>
       </section>
     </main>
+
+    <!-- Cashier dialog window -->
+    <dialog id="cashier-dialog">
+      <article>
+        <h2>Medlem: </h2>
+        <ul>
+          <li id="cashier-dialog-name">Navn: </li>
+          <li id="cashier-dialog-age">Alder: </li>
+          <li id="cashier-dialog-phone">Telefon: </li>
+          <li id="cashier-dialog-mail">E-mail: </li>
+          <li id="cashier-dialog-sub-start">Tilmeldt: </li>
+          <li id="cashier-dialog-sub-end">Medlemskab ophører: </li>
+          <li id="cashier-dialog-restance">I restance: </li>
+        </ul>
+        <button id="cashier-dialog-btn-close">Close?</button>
+      </article>
+    </dialog>
 
     <script src="./js/script.js" type="module"></script>
   </body>
