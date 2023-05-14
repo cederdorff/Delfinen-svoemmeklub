@@ -11,7 +11,6 @@ async function showCompetitiveMembers(results) {
 
   for (const result of results) {
     if (result.tournament === false) {
-      console.log(result);
       showCompetitiveMember(result);
     }
   }
@@ -39,7 +38,6 @@ function createTable() {
 
 async function showCompetitiveMember(memberObject) {
   const member = await getMembersCoach(memberObject.memberId);
-  console.log(member);
   document.querySelector("#for-coach-table-junior").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
@@ -47,8 +45,8 @@ async function showCompetitiveMember(memberObject) {
       <tr>
         <td>${member.firstname + " " + member.lastname}</td>
         <td>${member.age}</td>
-        <td>${member.disciplines}</td>
-        <td>${memberObject.timeMiliSeconds}</td>
+        <td>${memberObject.disciplin}</td>
+        <td>${memberObject.timeMiliSeconds}ms</td>
         <td>${memberObject.date}</td>
       </tr>
     </tbody>
