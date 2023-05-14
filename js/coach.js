@@ -1,12 +1,32 @@
-"use strict";
+import { getResults } from "./rest-data.js";
 
-function showCompetitiveMembers(members) {
+async function showCompetitiveMembers(members) {
+  const results = await getResults();
+  const traningTime = [];
   createTable();
-  for (const member of members) {
-    if (member.activityForm == "konkurrence-svømmer" && member.age < 18) {
-      showCompetitiveMemberJunior(member);
-    } else if (member.activityForm == "konkurrence-svømmer" && member.age >= 18) {
-      showCompetitiveMembersSenior(member);
+
+  for (const memberId in members) {
+    const member = members[memberId];
+    console.log(memberId);
+    if (member.activityForm === "konkurrence-svømmer" && member.age < 18) {
+      for (const resultId in results) {
+        const result = results[resultId];
+        // console.log(result);
+
+        if (result.memberId === memberId) {
+          traningTime.push(result);
+        }
+      }
+      showCompetitiveMemberJunior(member, traningTime);
+    } else if (member.activityForm === "konkurrence-svømmer" && member.age >= 18) {
+      for (const resultId in results) {
+        const result = results[resultId];
+
+        if (result.memberId === memberId) {
+          traningTime.push(result);
+        }
+      }
+      showCompetitiveMembersSenior(member, traningTime);
     }
   }
 }
@@ -39,7 +59,8 @@ function createTable() {
   );
 }
 
-function showCompetitiveMemberJunior(memberObject) {
+async function showCompetitiveMemberJunior(memberObject, results) {
+  console.log(results);
   document.querySelector("#for-coach-table-junior").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
@@ -47,12 +68,14 @@ function showCompetitiveMemberJunior(memberObject) {
         <td>${memberObject.firstname + " " + memberObject.lastname}</td>
         <td>${memberObject.age}</td>
         <td>${memberObject.disciplines}</td>
+        <td>${results}</td>
+
     </tr>
     `
   );
 }
 
-function showCompetitiveMembersSenior(memberObject) {
+async function showCompetitiveMembersSenior(memberObject) {
   document.querySelector("#for-coach-table-senior").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
