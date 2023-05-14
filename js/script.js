@@ -23,12 +23,20 @@ async function startApp() {
 
   // -- Adding eventlisteners for search functions
   // --Eventlisteners for search functions for Cashier
-   document
-     .querySelector("#input-search")
-     .addEventListener("keyup", inputSearchChangedForCashier);
   document
-    .querySelector("#input-search")
+    .querySelector("#input-search-cashier")
+    .addEventListener("keyup", inputSearchChangedForCashier);
+  document
+    .querySelector("#input-search-button-for-cashier")
     .addEventListener("search", inputSearchChangedForCashier);
+
+  // --Eventlisteners for search functions for Chairman
+  document
+    .querySelector("#input-search-chairman")
+    .addEventListener("keyup", inputSearchChangedForChairman);
+  document
+    .querySelector("#input-search-button-for-chairman")
+    .addEventListener("search", inputSearchChangedForChairman);
 
   //-- Eventlistener på knap i detailedView for formanden, som lukker vinduet ---//
   const closeButton = document.querySelector("#close-button");
@@ -61,13 +69,14 @@ async function updateMembersTable() {
   results = await getResults();
   console.log(members);
   console.log(results);
-  showMembersChairman();
+  showMembersChairman(members);
   showMembersForCashier(members);
   showCompetitiveMembers(members, results);
 }
 
-function showMembersChairman() {
+function showMembersChairman(members) {
   var table = document.getElementById("membersTable");
+   table.innerHTML = ""; // tømmer membersTAble for member elementer
   members.forEach(function (member) {
     var row = `
       <tr class="table-item">
@@ -167,7 +176,7 @@ function createMemberClicked() {
 // ========== Cashier functions ========== //
 
 function showMembersForCashier(membersList) {
-  document.querySelector("#cashier-members-tbody").innerHTML = "";
+  document.querySelector("#cashier-members-tbody").innerHTML = ""; // tømmer tbody for member elementer
   //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
 
@@ -319,6 +328,28 @@ function searchMembersForCashier(searchValue) {
   const results = members.filter(checkNameForCashier);
 
   function checkNameForCashier(member) {
+    const name = member.firstname.toLowerCase();
+    return name.includes(searchValue);
+  }
+
+  return results;
+}
+
+
+// ========== Search functions for chairman========== //
+function inputSearchChangedForChairman() {
+  const value = this.value;
+  const membersToShowForChairman = searchMembersForChairman(value); // send 'members' som argument
+  showMembersChairman(membersToShowForChairman);
+}
+
+function searchMembersForChairman(searchValue) {
+  // tag 'members' som argument
+  searchValue = searchValue.toLowerCase();
+
+  const results = members.filter(checkNameForChairman);
+
+  function checkNameForChairman(member) {
     const name = member.firstname.toLowerCase();
     return name.includes(searchValue);
   }
