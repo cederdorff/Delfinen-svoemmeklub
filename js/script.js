@@ -49,7 +49,7 @@ async function updateMembersTable() {
   console.log(results);
   showMembersChairman();
   showMembersForCashier(members);
-  showCompetitiveMembers(members);
+  showCompetitiveMembers(results);
 }
 
 function showMembersChairman() {
