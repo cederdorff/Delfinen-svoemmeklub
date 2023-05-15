@@ -4,7 +4,7 @@ import { initViews } from "./view-router.js";
 import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { showCompetitiveMembers } from "./coach.js";
-import { showMembersForCashier } from "./cashier.js";
+import { showMembersForCashier, cashierFilterByRestance } from "./cashier.js";
 
 let members;
 let results;
@@ -155,22 +155,4 @@ function createMemberClicked() {
   showMembersForCashier(members);
 }
 
-function cashierFilterByRestance() {
-  const restance = document.querySelector("#restance-filter");
-
-  if (restance.checked) {
-    memberInRestance = members.filter(checkRestance);
-    console.log(memberInRestance)
-    showMembersForCashier(memberInRestance);
-  } else {
-    showMembersForCashier(members);
-  }
-
-  function checkRestance(member) {
-    if (member.restance) {
-      return member;
-    }
-  }
-}
-
-export { members };
+export { members, memberInRestance };
