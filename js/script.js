@@ -6,6 +6,8 @@ import { getMembers, getResults } from "./rest-data.js";
 import { createMember } from "./helpers.js";
 import { showCompetitiveMembers } from "./coach.js";
 import { showMembersForCashier } from "./cashier.js";
+import { inputSearchChangedForCashier, inputSearchChangedForChairman } from "./mini-helpers.js";
+
 
 let members;
 let results;
