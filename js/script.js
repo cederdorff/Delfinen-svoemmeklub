@@ -180,8 +180,8 @@ function memberClicked(member) {
   }
 
   // Format the subscription dates before displaying them
-  let subscriptionStart = member.subscriptionStart ? formatDate(member.subscriptionStart) : "";
-  let subscriptionEnd = member.subscriptionEnd ? formatDate(member.subscriptionEnd) : "";
+  let subscriptionStart = member.subscriptionStart ? member.subscriptionStart : "";
+  let subscriptionEnd = member.subscriptionEnd ? member.subscriptionEnd : "";
 
   document.querySelector("#membershipInfo").innerHTML =
     "Startede i klubben: " + subscriptionStart + "<br>" + "Stoppede i klubben: " + subscriptionEnd;
@@ -226,7 +226,7 @@ async function createMemberSubmitted(event) {
       .value.split(",")
       .map((item) => item.trim()),
     coach: form.querySelector("#coach-create").value,
-    subscriptionStart: form.querySelector("#subscriptionstart-create").value,
+    subscriptionStart: formatDate(form.querySelector("#subscriptionstart-create").value),
   };
 
   // Set activityForm based on the selected radio button
@@ -317,6 +317,7 @@ function formatDateReversed(dateString) {
 async function updateMemberConfirmed(event) {
   event.preventDefault();
   const form = document.querySelector("form#form-update-chairman");
+  const id = form.id.value;
   const member = {
     firstname: form.querySelector("#firstname-update").value,
     lastname: form.querySelector("#lastname-update").value,
@@ -346,23 +347,13 @@ async function updateMemberConfirmed(event) {
     member.activityForm = "Senior-svømmer";
   }
 
-  const response = await updateMemberChairman(
-    member.firstname,
-    member.lastname,
-    member.age,
-    member.phone,
-    member.email,
-    member.active,
-    member.activityForm,
-    member.disciplines,
-    member.coach,
-    member.subscriptionStart,
-    member.subscriptionEnd
-  );
+  const response = await updateMemberChairman(id, member);
 
   if (response.ok) {
     console.log("Member updated");
     updateMembersTable();
+    document.querySelector("#update-member").close();
+
     console.log(members);
   }
 }
