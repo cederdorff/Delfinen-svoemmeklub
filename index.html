@@ -85,7 +85,7 @@
 <!-- Create member dialog-->
 <dialog id="create-member">
       <button id="create-close-btn">X</button>
-      <h2>Create Post</h2>
+      <h2>Opret nyt medlem</h2>
       <br /><br />
 
       <form
@@ -93,20 +93,37 @@
         method="POST"
         id="form-create"
       >
-        <label for="firstname-create">Title</label>
-        <input id="firstname-create" name="title" type="text" required />
-        <label for="lastname-create">Title</label>
-        <input id="lastname-create" name="title" type="text" required />
-
-        <label for="body-create">Description</label>
-        <textarea name="body" id="" cols="30" rows="10"></textarea>
-        <br />
-        <fieldset>
-          <legend>Picture</legend>
-          <img id="preview-image-create" src="" alt="" />
-          <input id="image-create" name="image" type="file" accept="image/*" />
-        </fieldset>
-
+        <label for="firstname-create">Fornavn</label>
+        <input id="firstname-create" name="firstname" type="text" required />
+        <label for="lastname-create">Efternavn</label>
+        <input id="lastname-create" name="lastname" type="text" required />
+        <label for="age-create">Alder</label>
+        <input id="age-create" name="age" type="number" required />
+        <label for="phone-create">Telefon</label>
+        <input id="phone-create" name="telefon" minlength="8" maxlength="8" type="tel" required />
+        <label for="email-create">E-mail</label>
+        <input id="email-create" name="email" type="email" required />
+        <p id="create-text">Medlemsform</p>
+        <div><label for="active-create">Aktivt</label>
+        <input id="active-create" name="active" type="radio" required />
+        <label for="passive-create">Passivt</label>
+        <input id="passive-create" name="active" type="radio" required />
+        </div>        
+        <p id="create-text">Medlemstype</p>
+        <div>        
+        <label for="activityform-create-option1">Konkurrencesvømmer</label>
+        <input id="activityform-create-option1" name="activityform" type="radio" required />
+        <label for="activityform-create-option2">Motionistsvømmer</label>
+        <input id="activityform-create-option2" name="activityform" type="radio" required />
+        <label for="activityform-create-option3">Seniorsvømmer</label>
+        <input id="activityform-create-option3" name="activityform" type="radio" required />
+        </div>
+        <label for="disciplines-create">Discipliner</label>
+        <input id="disciplines-create" name="discipliner" type="text"/>
+        <label for="coach-create">Træner</label>
+        <input id="coach-create" name="coach" type="text" />
+        <label for="subscriptionstart-create">Begyndelse af medlemsskab</label>
+        <input id="subscriptionstart-create" name="subscriptionstart" type="date" required />
         <input id="submit-btn-create" type="submit" />
         <input id="reset-btn-create" type="reset" />
       </form>
