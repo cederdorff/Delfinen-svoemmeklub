@@ -100,6 +100,7 @@ async function updateMembersTable() {
 
 function showMembersChairman() {
   const tableBody = document.querySelector("#membersTableBody");
+  tableBody.innerHTML = ""; // tømmer membersTAble for member elementer
   members.forEach(function (member) {
     var row = `
       <tr class="table-item">
