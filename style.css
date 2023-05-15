@@ -393,18 +393,16 @@ h3 {
   background-color: #bfbdc1;
 }
 
-#for-coach-table-junior tr,
-#for-coach-table-senior tr {
+#coach-members-tbody tr {
   background-color: #e1e0e2;
 }
 
-#for-coach-table-junior,
-#for-coach-table-senior {
+#coach-members {
   background-color: black;
 }
 
 #for-coach-article tr:hover,
 #cashier-members tr:hover {
-  background-color: #e3e3e3;
+  background-color: #bebaba;
   opacity: 1;
 }
