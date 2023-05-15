@@ -93,12 +93,12 @@ async function updateMembersTable() {
   results = await getResults();
   console.log(members);
   console.log(results);
-  showMembersChairman();
+  showMembersChairman(members);
   showMembersForCashier(members);
   showCompetitiveMembers(results);
 }
 
-function showMembersChairman() {
+function showMembersChairman(members) {
   console.log("Køres denne funktion ved søgning?")
   const tableBody = document.querySelector("#membersTableBody");
   tableBody.innerHTML = ""; // tømmer membersTAble for member elementer
