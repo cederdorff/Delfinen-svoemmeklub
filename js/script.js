@@ -229,4 +229,4 @@ async function createMemberSubmitted(event) {
   document.querySelector("#create-member").close(); // close dialog
 }
 
-export { members };
+export { members, results };
