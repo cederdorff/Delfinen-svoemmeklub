@@ -5,7 +5,7 @@ import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { createMember } from "./helpers.js";
 import { showCompetitiveMembers } from "./coach.js";
-import { showMembersForCashier } from "./cashier.js";
+import { showMembersForCashier, insertAccountingResults } from "./cashier.js";
 import { inputSearchChangedForCashier, inputSearchChangedForChairman } from "./mini-helpers.js";
 
 
@@ -57,6 +57,8 @@ async function loginInLoginClicked() {
   members = await getMembers();
   results = await getResults();
   determineWhatIsShownInNavbar();
+  // Virker det bedre at kalde insertAccountingResults() herfra?
+  insertAccountingResults();
   // tilføjet event listener for ny lavet coach knap.
   // document.querySelector("#for-coach-btn").addEventListener("click", showCompetitiveMembers(members, results));
   document.querySelector("#login").close();
