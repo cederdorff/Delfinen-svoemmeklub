@@ -10,10 +10,9 @@ function showMembersForCashier(membersList) {
 
   insertAccountingResults();
 
-  //alle rows i tabel slettes
-  for (let i = 0; i < table.rows.length; i++) {
-    table.deleteRow(i);
-  }
+  //alle rows i tabel nulstilles til tom string
+  document.querySelector("#cashier-members-tbody").textContent = "";
+
 
   //en row skabes i table for hvert medlem i members array
   for (const member of membersList) {
@@ -23,8 +22,8 @@ function showMembersForCashier(membersList) {
 
 //function for creating row member element
 function showMemberForCashier(memberObject) {
-  correctRestance(memberObject);
-
+  //correctRestance(memberObject);
+  console.log("...")
   const htmlCashier = /*html*/ `
                     <tr>
                       <td>${memberObject.firstname} ${memberObject.lastname}</td>
@@ -33,7 +32,7 @@ function showMemberForCashier(memberObject) {
                       <td>${memberObject.phone}</td>
                       <td>${memberObject.subscriptionStart}</td>
                       <td>${memberObject.subscriptionEnd}</td>
-                      <td>${memberObject.restance} ${memberObject.active}</td>
+                      <td>${memberObject.restance}</td>
                     </tr>
   `;
 

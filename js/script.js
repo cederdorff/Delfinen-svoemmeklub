@@ -8,6 +8,7 @@ import { showMembersForCashier } from "./cashier.js";
 
 let members;
 let results;
+let memberInRestance;
 
 window.addEventListener("load", startApp);
 
@@ -27,6 +28,9 @@ async function startApp() {
   });
 
   document.querySelector(".btn-create").addEventListener("click", createMemberClicked);
+
+  //eventlistener for cashier filter(s)
+  document.querySelector("#restance-filter").addEventListener("change", cashierFilterByRestance);
 }
 
 function loginClicked() {
@@ -149,6 +153,24 @@ function createMemberClicked() {
   document.querySelector("#create-member").showModal();
   document.querySelector("#create-member").scrollTop = 0;
   showMembersForCashier(members);
+}
+
+function cashierFilterByRestance() {
+  const restance = document.querySelector("#restance-filter");
+
+  if (restance.checked) {
+    memberInRestance = members.filter(checkRestance);
+    console.log(memberInRestance)
+    showMembersForCashier(memberInRestance);
+  } else {
+    showMembersForCashier(members);
+  }
+
+  function checkRestance(member) {
+    if (member.restance) {
+      return member;
+    }
+  }
 }
 
 export { members };
