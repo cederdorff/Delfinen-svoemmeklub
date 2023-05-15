@@ -1,5 +1,6 @@
-import { members, memberInRestance } from "./script.js";
+import { members } from "./script.js";
 
+let memberInRestance;
 // ========== Cashier functions ========== //
 
 function showMembersForCashier(membersList) {

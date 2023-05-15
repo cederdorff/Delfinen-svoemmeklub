@@ -8,7 +8,6 @@ import { showMembersForCashier, cashierFilterByRestance } from "./cashier.js";
 
 let members;
 let results;
-let memberInRestance;
 
 window.addEventListener("load", startApp);
 
@@ -155,4 +154,4 @@ function createMemberClicked() {
   showMembersForCashier(members);
 }
 
-export { members, memberInRestance };
+export { members };
