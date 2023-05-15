@@ -99,7 +99,6 @@ async function updateMembersTable() {
 }
 
 function showMembersChairman(members) {
-  console.log("Køres denne funktion ved søgning?")
   const tableBody = document.querySelector("#membersTableBody");
   tableBody.innerHTML = ""; // tømmer membersTAble for member elementer
   members.forEach(function (member) {
