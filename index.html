@@ -36,11 +36,11 @@
     <article id="dialog">
       <dialog id="memberDetailedView">
         <h2 id="dialog-header"></h2>
-        <h3>Personlige oplysninger: </h3>
+        <h3>Personlige oplysninger:</h3>
         <p id="member-personalInfo"></p>
-        <h3>Svømmerinfo: </h3>
+        <h3>Svømmerinfo:</h3>
         <p id="member-swimmerInfo"></p>
-        <h3>Oplysninger om medlemsskab: </h3>
+        <h3>Oplysninger om medlemsskab:</h3>
         <p id="membershipInfo"></p>
         <form method="dialog">
           <div id="close-btn" class="buttons">
@@ -53,47 +53,44 @@
     <!-----------login dialog ------------->
     <dialog id="login">
       <form id="login-form" action="" method="dialog">
-        <p id="text-login-som">Log ind som: </p>
-      <div id="radio-btn-selection"><label for="login-coach">Træner</label>
-        <input id="login-coach" type="radio" name="login-som" value="coach"> </input>
-        <label for="login-formand">Formand</label>
-        <input id="login-formand" type="radio" name="login-som" value="formand"> </input>
-        <label for="login-kasserer">Kasserer</label>
-        <input id="login-kasserer" type="radio" name="login-som" value="kasserer"> </input>
-      </div>
+        <p id="text-login-som">Log ind som:</p>
+        <div id="radio-btn-selection">
+          <label for="login-coach">Træner</label>
+          <input id="login-coach" type="radio" name="login-som" value="coach" />
+          <label for="login-formand">Formand</label>
+          <input id="login-formand" type="radio" name="login-som" value="formand" />
+          <label for="login-kasserer">Kasserer</label>
+          <input id="login-kasserer" type="radio" name="login-som" value="kasserer" />
+        </div>
         <label id="label-login" for="username">Username: </label>
         <input id="username" type="text" value="" required />
-        <label id="label-login" for="password" >Password: </label>
+        <label id="label-login" for="password">Password: </label>
         <input id="password" type="password" value="" required />
         <div>
-          <div id="remember-password">          
+          <div id="remember-password">
             <label for="checkbox">Husk min adgangskode</label>
-          <input id="checkbox" type="checkbox" />
+            <input id="checkbox" type="checkbox" />
+          </div>
         </div>
-      </div>
         <p id="forgotten-password">Glemt adgangskode?</p>
         <br />
         <button id="logon-btn" type="button">Log på</button>
       </form>
-     </dialog>
-     
-     <!----------error message log-in--------->
-     <dialog id="error-message-log-in">
-        <p>Forkert brugernavn eller log-in. Prøv venligst igen</p>
-        <button id="ok-button-error-message">Ok</button>
-     </dialog> 
+    </dialog>
 
-<!-- Create member dialog-->
-<dialog id="create-member">
+    <!----------error message log-in--------->
+    <dialog id="error-message-log-in">
+      <p>Forkert brugernavn eller log-in. Prøv venligst igen</p>
+      <button id="ok-button-error-message">Ok</button>
+    </dialog>
+
+    <!-- Create member dialog-->
+    <dialog id="create-member">
       <button id="create-close-btn">X</button>
       <h2>Opret nyt medlem</h2>
       <br /><br />
 
-      <form
-        action=""
-        method="POST"
-        id="form-create"
-      >
+      <form action="" method="POST" id="form-create">
         <label for="firstname-create">Fornavn</label>
         <input id="firstname-create" name="firstname" type="text" required />
         <label for="lastname-create">Efternavn</label>
@@ -105,22 +102,23 @@
         <label for="email-create">E-mail</label>
         <input id="email-create" name="email" type="email" required />
         <p id="create-text">Medlemsform</p>
-        <div><label for="active-create">Aktivt</label>
-        <input id="active-create" name="active" type="radio" required />
-        <label for="passive-create">Passivt</label>
-        <input id="passive-create" name="active" type="radio" required />
-        </div>        
+        <div>
+          <label for="active-create">Aktivt</label>
+          <input id="active-create" name="active" type="radio" required />
+          <label for="passive-create">Passivt</label>
+          <input id="passive-create" name="active" type="radio" required />
+        </div>
         <p id="create-text">Medlemstype</p>
-        <div>        
-        <label for="activityform-create-option1">Konkurrencesvømmer</label>
-        <input id="activityform-create-option1" name="activityform" type="radio" required />
-        <label for="activityform-create-option2">Motionistsvømmer</label>
-        <input id="activityform-create-option2" name="activityform" type="radio" required />
-        <label for="activityform-create-option3">Seniorsvømmer</label>
-        <input id="activityform-create-option3" name="activityform" type="radio" required />
+        <div>
+          <label for="activityform-create-option1">Konkurrencesvømmer</label>
+          <input id="activityform-create-option1" name="activityform" type="radio" required />
+          <label for="activityform-create-option2">Motionistsvømmer</label>
+          <input id="activityform-create-option2" name="activityform" type="radio" required />
+          <label for="activityform-create-option3">Seniorsvømmer</label>
+          <input id="activityform-create-option3" name="activityform" type="radio" required />
         </div>
         <label for="disciplines-create">Discipliner</label>
-        <input id="disciplines-create" name="discipliner" type="text"/>
+        <input id="disciplines-create" name="discipliner" type="text" />
         <label for="coach-create">Træner</label>
         <input id="coach-create" name="coach" type="text" />
         <label for="subscriptionstart-create">Begyndelse af medlemsskab</label>
@@ -129,7 +127,6 @@
         <input id="reset-btn-create" type="reset" />
       </form>
     </dialog>
-
 
     <main>
       <section id="home" class="view-content">
@@ -149,10 +146,7 @@
         <img id="background-image-other" src="img/baggrund.jpg" alt="" />
         <div class="forside-text">
           <h2>About</h2>
-          <p>
-            Vi er en super cool svømmeklub, der får dig til at svømme som en
-            delfin
-          </p>
+          <p>Vi er en super cool svømmeklub, der får dig til at svømme som en delfin</p>
         </div>
       </section>
 
@@ -166,10 +160,8 @@
         </div>
       </section>
 
-
       <!-- DOM-manipulation for chairman -->
-      <section id="forChairman" class="view-content">
-      </section>
+      <section id="forChairman" class="view-content"></section>
 
       <!-- DOM-manipulation for treasurer/cashier-->
       <section id="forCashier" class="view-content">
@@ -179,28 +171,56 @@
           <p>Restance: <span id="restance"></span></p>
           <p>samlet: <span id="samlet"></span></p>
         </article>
-        
+
         <table id="cashier-members">
-              <thead>
-                <tr>
-                  <th>Navn</th>
-                  <th>Alder</th>
-                  <th>E-mail</th>
-                  <th>Tlf.</th>
-                  <th>Medlemskab start</th>
-                  <th>Medlemskab slut</th>
-                  <th>restance?</th>
-                </tr>
-              </thead>
-              <tbody id="cashier-members-tbody">
-                <!-- members gets inserted here -->
-              </tbody>
-            </table>
+          <thead>
+            <tr>
+              <th>Navn</th>
+              <th>Alder</th>
+              <th>E-mail</th>
+              <th>Tlf.</th>
+              <th>Medlemskab start</th>
+              <th>Medlemskab slut</th>
+              <th>restance?</th>
+            </tr>
+          </thead>
+          <tbody id="cashier-members-tbody">
+            <!-- members gets inserted here -->
+          </tbody>
+        </table>
       </section>
 
       <!-- DOM-manipulation for coach-->
       <section id="for-coach-section" class="view-content">
         <article id="for-coach-article">
+          <div id="forCoachSort-container">
+            <label for="for-coach-sort-by">Sort by: </label>
+            <select name="for-coach-sort-by" id="sortBy-for-coach">
+              <option value="none">Intet</option>
+              <option value="age">alder</option>
+              <option value="time">Tid</option>
+            </select>
+          </div>
+          <div id="forCoachFilter">
+            <fieldset>
+              <!-- Top 5 filter -->
+              <label for="coachFilterTop5"
+                >Top 5: <input type="checkbox" name="coachFilterTop5" id="coachFilterTop5"
+              /></label>
+              <!-- Junior filter -->
+              <label for="coachFilterJunior"
+                >Junior: <input type="checkbox" name="coachFilterJunior" id="coachFilterJunior"
+              /></label>
+
+              <!-- Senior filter -->
+              <label for="coachFilterSenior"
+                >Senior: <input type="checkbox" name="coachFilterSenior" id="coachFilterSenior"
+              /></label>
+
+              <!-- Ekstra filtre -->
+            </fieldset>
+          </div>
+          <h2>Atleter</h2>
           <table id="coach-members">
             <thead>
               <tr>
@@ -211,9 +231,7 @@
                 <th>Dato</th>
               </tr>
             </thead>
-            <tbody id="coach-members-tbody">
-
-            </tbody>
+            <tbody id="coach-members-tbody"></tbody>
           </table>
         </article>
       </section>
@@ -222,15 +240,15 @@
     <!-- Cashier dialog window -->
     <dialog id="cashier-dialog">
       <article>
-        <h2>Medlem: </h2>
+        <h2>Medlem:</h2>
         <ul>
-          <li id="cashier-dialog-name">Navn: </li>
-          <li id="cashier-dialog-age">Alder: </li>
-          <li id="cashier-dialog-phone">Telefon: </li>
-          <li id="cashier-dialog-mail">E-mail: </li>
-          <li id="cashier-dialog-sub-start">Tilmeldt: </li>
-          <li id="cashier-dialog-sub-end">Medlemskab ophører: </li>
-          <li id="cashier-dialog-restance">I restance: </li>
+          <li id="cashier-dialog-name">Navn:</li>
+          <li id="cashier-dialog-age">Alder:</li>
+          <li id="cashier-dialog-phone">Telefon:</li>
+          <li id="cashier-dialog-mail">E-mail:</li>
+          <li id="cashier-dialog-sub-start">Tilmeldt:</li>
+          <li id="cashier-dialog-sub-end">Medlemskab ophører:</li>
+          <li id="cashier-dialog-restance">I restance:</li>
         </ul>
         <button id="cashier-dialog-btn-close">Close?</button>
       </article>
