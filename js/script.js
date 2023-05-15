@@ -43,7 +43,7 @@ async function startApp() {
   });
 
   const closeButtonUpdate = document.querySelector("#update-close-btn-chairman");
-  closeButtonDelete.addEventListener("click", function () {
+  closeButtonUpdate.addEventListener("click", function () {
     const dialogClose = document.querySelector("#update-member");
     dialogClose.close();
   });
@@ -235,11 +235,11 @@ async function createMemberSubmitted(event) {
   const activityFormOption3 = form.querySelector("#activityform-create-option3");
 
   if (activityFormOption1.checked) {
-    member.activityForm = "Konkurrence-svømmer";
+    member.activityForm = "konkurrence-svømmer";
   } else if (activityFormOption2.checked) {
-    member.activityForm = "Motionist-svømmer";
+    member.activityForm = "motionist-svømmer";
   } else if (activityFormOption3.checked) {
-    member.activityForm = "Senior-svømmer";
+    member.activityForm = "senior-svømmer";
   }
 
   const response = await createMember(
@@ -276,8 +276,6 @@ function updateMemberChairmanClicked(member) {
   updateForm.email.value = member.email;
   updateForm.discipliner.value = member.disciplines;
   updateForm.coach.value = member.coach;
-  updateForm.subscriptionstart.value = member.subscriptionstart;
-  updateForm.subscriptionend.value = member.subscriptionend;
 
   // Set active radio button based on the member's active status
   if (member.active) {
@@ -287,15 +285,33 @@ function updateMemberChairmanClicked(member) {
   }
 
   // Set activityform radio button based on the member's activityForm value
-  if (member.activityForm === "Konkurrence-svømmer") {
-    updateForm.querySelector("#activityform-update-option1").checked;
-  } else if (member.activityForm === "Motionist-svømmer") {
-    updateForm.querySelector("#activityform-update-option2").checked;
-  } else if (member.activityForm === "Senior-svømmer") {
-    updateForm.querySelector("#activityform-update-option3").checked;
+  if (member.activityForm === "konkurrence-svømmer") {
+    updateForm.querySelector("#activityform-update-option1").checked = true;
+  } else if (member.activityForm === "motionist-svømmer") {
+    updateForm.querySelector("#activityform-update-option2").checked = true;
+  } else if (member.activityForm === "senior-svømmer" || member.activityForm === "Senior-svømmer") {
+    updateForm.querySelector("#activityform-update-option3").checked = true;
   }
 
+  // Convert the date format from "dd/mm/yyyy" to "yyyy-mm-dd"
+  const subscriptionStart = formatDateReversed(member.subscriptionStart);
+  const subscriptionEnd = formatDateReversed(member.subscriptionEnd);
+
+  updateForm.subscriptionstart.value = subscriptionStart;
+  updateForm.subscriptionend.value = subscriptionEnd;
+
   document.querySelector("#update-member").showModal();
+}
+
+function formatDateReversed(dateString) {
+  if (dateString) {
+    const parts = dateString.split("/");
+    if (parts.length === 3) {
+      const [day, month, year] = parts;
+      return `${year}-${month}-${day}`;
+    }
+  }
+  return dateString || ""; // Return empty string if dateString is undefined
 }
 
 async function updateMemberConfirmed(event) {
@@ -313,8 +329,8 @@ async function updateMemberConfirmed(event) {
       .value.split(",")
       .map((item) => item.trim()),
     coach: form.querySelector("#coach-update").value,
-    subscriptionStart: form.querySelector("#subscriptionstart-update").value,
-    subscriptionEnd: form.querySelector("#subscriptionend-update").value,
+    subscriptionStart: formatDate(form.querySelector("#subscriptionstart-update").value),
+    subscriptionEnd: formatDate(form.querySelector("#subscriptionend-update").value),
   };
 
   // Set activityForm based on the selected radio button

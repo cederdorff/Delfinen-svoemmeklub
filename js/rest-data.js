@@ -1,4 +1,4 @@
-import { prepareMembersData } from "./helpers.js";
+import { prepareMembersData, prepareResultsData } from "./helpers.js";
 
 // ========== Global endpoint variable til firebase========== //
 const endpoint = "https://crud-1st-semester-projekt-default-rtdb.firebaseio.com/";
@@ -8,23 +8,13 @@ async function getMembers() {
   const response = await fetch(`${endpoint}/members.json`);
   const data = await response.json();
 
-  if (data && typeof data === "object") {
+  if (typeof data === "object" && data !== null) {
+    console.log(data);
     const members = prepareMembersData(data);
     return members;
   } else {
-    return [];
+    throw new Error("Invalid data format. Expected an object.");
   }
-}
-
-function prepareResultsData(dataObject) {
-  const resultsArray = [];
-
-  for (const key in dataObject) {
-    const result = dataObject[key];
-    result.id = key;
-    resultsArray.push(result);
-  }
-  return resultsArray;
 }
 
 async function getResults() {
