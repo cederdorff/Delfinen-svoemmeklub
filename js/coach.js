@@ -1,13 +1,10 @@
 import { getMembersCoach } from "./rest-data.js";
 
 async function showCompetitiveMembers(results) {
-  createTable();
-  // for (const member of members) {
-  //   if (member.activityForm === "konkurrence-svømmer" ) {
-  //     console.log("Konkurrence-svømmer create");
-  //     showCompetitiveMember(member);
-  //   }
-  // }
+  // createTable();
+
+  // event listener til sort
+  document.querySelector("#sortBy-for-coach").addEventListener("change", sortByForCoach);
 
   for (const result of results) {
     if (result.tournament === false) {
@@ -38,7 +35,7 @@ function createTable() {
 
 async function showCompetitiveMember(memberObject) {
   const member = await getMembersCoach(memberObject.memberId);
-  document.querySelector("#for-coach-table-junior").insertAdjacentHTML(
+  document.querySelector("#coach-members-tbody").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
     <tbody>
@@ -52,6 +49,12 @@ async function showCompetitiveMember(memberObject) {
     </tbody>
     `
   );
+}
+
+// ========== Sort ========== //
+
+function sortByForCoach(event) {
+  const value = event.target.value;
 }
 
 export { showCompetitiveMembers };
