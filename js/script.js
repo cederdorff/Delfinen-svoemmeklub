@@ -17,26 +17,16 @@ async function startApp() {
   updateMembersTable();
 
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
-  document
-    .querySelector("#logon-btn")
-    .addEventListener("click", loginInLoginClicked);
+  document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
 
   // -- Adding eventlisteners for search functions
   // --Eventlisteners for search functions for Cashier
-  document
-    .querySelector("#input-search-cashier")
-    .addEventListener("keyup", inputSearchChangedForCashier);
-  document
-    .querySelector("#input-search-button-for-cashier")
-    .addEventListener("search", inputSearchChangedForCashier);
+  document.querySelector("#input-search-cashier").addEventListener("keyup", inputSearchChangedForCashier);
+  document.querySelector("#input-search-button-for-cashier").addEventListener("search", inputSearchChangedForCashier);
 
   // --Eventlisteners for search functions for Chairman
-  document
-    .querySelector("#input-search-chairman")
-    .addEventListener("keyup", inputSearchChangedForChairman);
-  document
-    .querySelector("#input-search-button-for-chairman")
-    .addEventListener("search", inputSearchChangedForChairman);
+  document.querySelector("#input-search-chairman").addEventListener("keyup", inputSearchChangedForChairman);
+  document.querySelector("#input-search-button-for-chairman").addEventListener("search", inputSearchChangedForChairman);
 
   //-- Eventlistener på knap i detailedView for formanden, som lukker vinduet ---//
   const closeButton = document.querySelector("#close-button");
@@ -45,9 +35,7 @@ async function startApp() {
     dialog.close();
   });
 
-  document
-    .querySelector(".btn-create")
-    .addEventListener("click", createMemberClicked);
+  document.querySelector(".btn-create").addEventListener("click", createMemberClicked);
 }
 
 function loginClicked() {
@@ -76,7 +64,7 @@ async function updateMembersTable() {
 
 function showMembersChairman(members) {
   var table = document.getElementById("membersTable");
-   table.innerHTML = ""; // tømmer membersTAble for member elementer
+  table.innerHTML = ""; // tømmer membersTAble for member elementer
   members.forEach(function (member) {
     var row = `
       <tr class="table-item">
@@ -180,11 +168,11 @@ function showMembersForCashier(membersList) {
   //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
 
-  insertCashierAccountingSection();
   //alle rows i tabel slettes
   for (let i = 0; i < table.rows.length; i++) {
     table.deleteRow(i);
   }
+  insertCashierAccountingSection();
 
   //en row skabes i table for hvert medlem i members array
   for (const member of membersList) {
@@ -221,12 +209,16 @@ function showMemberForCashier(memberObject) {
     document.querySelector("#cashier-dialog-btn-close").addEventListener("click", closeCashierDialog);
 
     // setting textcontent value equal to clicked member
-    document.querySelector("#cashier-dialog-name").textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
+    document.querySelector(
+      "#cashier-dialog-name"
+    ).textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
     document.querySelector("#cashier-dialog-age").textContent = `Alder: ${memberObject.age}`;
     document.querySelector("#cashier-dialog-phone").textContent = `Telefon: ${memberObject.phone}`;
     document.querySelector("#cashier-dialog-mail").textContent = `E-mail: ${memberObject.email}`;
     document.querySelector("#cashier-dialog-sub-start").textContent = `Tilmeldt: ${memberObject.subscriptionStart}`;
-    document.querySelector("#cashier-dialog-sub-end").textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
+    document.querySelector(
+      "#cashier-dialog-sub-end"
+    ).textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
     document.querySelector("#cashier-dialog-restance").textContent = `Restance: ${memberObject.restance}`;
 
     // show modal/dialog
@@ -256,7 +248,7 @@ function insertCashierAccountingSection() {
   const accountingSection = /*html*/ `
                           <article id="accounting-section">
                             <h2>Kontingent oversigt:</h2>
-                            <p>Kontingenter: ${budgetteret}</p>
+                            <p>Kontingenter: <span id="kontingenter">${budgetteret}</span></p>
                             <p>Restance: ${realiseret}</p>
                             <p>samlet: ${samlet}</p>
                           </article>
@@ -313,7 +305,6 @@ function calculateRestance(membersList) {
   return result;
 }
 
-
 // ========== Search functions for cashier========== //
 function inputSearchChangedForCashier() {
   const value = this.value;
@@ -334,7 +325,6 @@ function searchMembersForCashier(searchValue) {
 
   return results;
 }
-
 
 // ========== Search functions for chairman========== //
 function inputSearchChangedForChairman() {
