@@ -20,6 +20,15 @@ async function startApp() {
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
   document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
 
+  // -- Adding eventlisteners for search functions
+  // --Eventlisteners for search functions for Cashier
+  document.querySelector("#input-search-cashier").addEventListener("keyup", inputSearchChangedForCashier);
+  document.querySelector("#input-search-button-for-cashier").addEventListener("search", inputSearchChangedForCashier);
+
+  // --Eventlisteners for search functions for Chairman
+  document.querySelector("#input-search-chairman").addEventListener("keyup", inputSearchChangedForChairman);
+  document.querySelector("#input-search-button-for-chairman").addEventListener("search", inputSearchChangedForChairman);
+
   //-- Eventlistener på knap i detailedView for formanden, som lukker vinduet ---//
   const closeButton = document.querySelector("#close-button");
   closeButton.addEventListener("click", function () {
