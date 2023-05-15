@@ -2,7 +2,7 @@
 
 import { initViews } from "./view-router.js";
 import { determineWhatIsShownInNavbar } from "./dom.js";
-import { getMembers, getResults } from "./rest-data.js";
+import { getMembers, getResults, deleteMember, updateMemberChairman } from "./rest-data.js";
 import { createMember } from "./helpers.js";
 import { showCompetitiveMembers } from "./coach.js";
 import { showMembersForCashier } from "./cashier.js";
@@ -35,6 +35,22 @@ async function startApp() {
 
   document.querySelector(".btn-create").addEventListener("click", createMemberClicked);
   document.querySelector("form#form-create").addEventListener("submit", createMemberSubmitted);
+
+  const closeButtonDelete = document.querySelector("#deny-delete-btn");
+  closeButtonDelete.addEventListener("click", function () {
+    const dialogClose = document.querySelector("#dialog-delete-member");
+    dialogClose.close();
+  });
+
+  const closeButtonUpdate = document.querySelector("#update-close-btn-chairman");
+  closeButtonDelete.addEventListener("click", function () {
+    const dialogClose = document.querySelector("#update-member");
+    dialogClose.close();
+  });
+
+  document.querySelector("form#form-delete-member").addEventListener("submit", deleteMemberConfirmed);
+
+  document.querySelector("form#form-update-chairman").addEventListener("submit", updateMemberConfirmed);
 }
 
 function loginClicked() {
@@ -87,7 +103,7 @@ async function updateMembersTable() {
   showCompetitiveMembers(results);
 }
 
-function showMembersChairman() {
+function showMembersChairman(member) {
   const tableBody = document.querySelector("#membersTableBody");
   members.forEach(function (member) {
     var row = `
@@ -116,6 +132,25 @@ function showMembersChairman() {
       button.addEventListener("click", (event) => {
         event.stopPropagation(); // Prevent event from bubbling up to grid-item
       });
+    });
+  });
+  document.querySelectorAll(".btn-delete").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const memberId = button.dataset.id;
+      const member = members.find((member) => member.id === memberId);
+      if (member) {
+        deleteClickedChairman(member);
+      }
+    });
+  });
+
+  document.querySelectorAll(".btn-update").forEach(function (button) {
+    button.addEventListener("click", function () {
+      const memberId = button.dataset.id;
+      const member = members.find((member) => member.id === memberId);
+      if (member) {
+        updateMemberChairmanClicked(member);
+      }
     });
   });
 }
@@ -157,7 +192,7 @@ function memberClicked(member) {
   }
 }
 
-//-- Create member //
+//-- Create member chairman //
 
 function createMemberClicked() {
   document.querySelector("#create-member").showModal();
@@ -200,11 +235,11 @@ async function createMemberSubmitted(event) {
   const activityFormOption3 = form.querySelector("#activityform-create-option3");
 
   if (activityFormOption1.checked) {
-    member.activityForm = "Konkurrencesvømmer";
+    member.activityForm = "Konkurrence-svømmer";
   } else if (activityFormOption2.checked) {
-    member.activityForm = "Motionistsvømmer";
+    member.activityForm = "Motionist-svømmer";
   } else if (activityFormOption3.checked) {
-    member.activityForm = "Seniorsvømmer";
+    member.activityForm = "Senior-svømmer";
   }
 
   const response = await createMember(
@@ -227,6 +262,110 @@ async function createMemberSubmitted(event) {
   }
 
   document.querySelector("#create-member").close(); // close dialog
+}
+
+// Update member chairman //
+
+function updateMemberChairmanClicked(member) {
+  const updateForm = document.querySelector("#form-update-chairman");
+  updateForm.id.value = member.id;
+  updateForm.firstname.value = member.firstname;
+  updateForm.lastname.value = member.lastname;
+  updateForm.age.value = member.age;
+  updateForm.phone.value = member.phone;
+  updateForm.email.value = member.email;
+  updateForm.discipliner.value = member.disciplines;
+  updateForm.coach.value = member.coach;
+  updateForm.subscriptionstart.value = member.subscriptionstart;
+  updateForm.subscriptionend.value = member.subscriptionend;
+
+  // Set active radio button based on the member's active status
+  if (member.active) {
+    updateForm.querySelector("#active-update").checked = true;
+  } else {
+    updateForm.querySelector("#passive-update").checked = true;
+  }
+
+  // Set activityform radio button based on the member's activityForm value
+  if (member.activityForm === "Konkurrence-svømmer") {
+    updateForm.querySelector("#activityform-update-option1").checked;
+  } else if (member.activityForm === "Motionist-svømmer") {
+    updateForm.querySelector("#activityform-update-option2").checked;
+  } else if (member.activityForm === "Senior-svømmer") {
+    updateForm.querySelector("#activityform-update-option3").checked;
+  }
+
+  document.querySelector("#update-member").showModal();
+}
+
+async function updateMemberConfirmed(event) {
+  event.preventDefault();
+  const form = document.querySelector("form#form-update-chairman");
+  const member = {
+    firstname: form.querySelector("#firstname-update").value,
+    lastname: form.querySelector("#lastname-update").value,
+    age: form.querySelector("#age-update").value,
+    phone: form.querySelector("#phone-update").value,
+    email: form.querySelector("#email-update").value,
+    active: form.querySelector('input[name="active"]:checked').value === "active",
+    disciplines: form
+      .querySelector("#disciplines-update")
+      .value.split(",")
+      .map((item) => item.trim()),
+    coach: form.querySelector("#coach-update").value,
+    subscriptionStart: form.querySelector("#subscriptionstart-update").value,
+    subscriptionEnd: form.querySelector("#subscriptionend-update").value,
+  };
+
+  // Set activityForm based on the selected radio button
+  const activityFormOption1 = form.querySelector("#activityform-update-option1");
+  const activityFormOption2 = form.querySelector("#activityform-update-option2");
+  const activityFormOption3 = form.querySelector("#activityform-update-option3");
+
+  if (activityFormOption1.checked) {
+    member.activityForm = "Konkurrence-svømmer";
+  } else if (activityFormOption2.checked) {
+    member.activityForm = "Motionist-svømmer";
+  } else if (activityFormOption3.checked) {
+    member.activityForm = "Senior-svømmer";
+  }
+
+  const response = await updateMemberChairman(
+    member.firstname,
+    member.lastname,
+    member.age,
+    member.phone,
+    member.email,
+    member.active,
+    member.activityForm,
+    member.disciplines,
+    member.coach,
+    member.subscriptionStart,
+    member.subscriptionEnd
+  );
+
+  if (response.ok) {
+    console.log("Member updated");
+    updateMembersTable();
+    console.log(members);
+  }
+}
+
+// Delete member chairman //
+
+function deleteClickedChairman(member) {
+  document.querySelector("#dialog-delete-member-name").textContent = member.firstname + " " + member.lastname;
+  document.querySelector("#form-delete-member").setAttribute("data-id", member.id);
+  document.querySelector("#dialog-delete-member").showModal();
+}
+
+async function deleteMemberConfirmed(event) {
+  const id = event.target.dataset.id;
+  const response = await deleteMember(id);
+  if (response.ok) {
+    console.log("Member successfully deleted");
+    updateMembersTable();
+  }
 }
 
 export { members };

@@ -8,15 +8,30 @@ async function getMembers() {
   const response = await fetch(`${endpoint}/members.json`);
   const data = await response.json();
 
-  const members = prepareMembersData(data);
-  return members;
+  if (data && typeof data === "object") {
+    const members = prepareMembersData(data);
+    return members;
+  } else {
+    return [];
+  }
+}
+
+function prepareResultsData(dataObject) {
+  const resultsArray = [];
+
+  for (const key in dataObject) {
+    const result = dataObject[key];
+    result.id = key;
+    resultsArray.push(result);
+  }
+  return resultsArray;
 }
 
 async function getResults() {
   const response = await fetch(`${endpoint}/results.json`);
   const data = await response.json();
 
-  const results = prepareMembersData(data);
+  const results = prepareResultsData(data);
   return results;
 }
 
@@ -27,4 +42,21 @@ async function getMembersCoach(id) {
   return data;
 }
 
-export { getMembers, getResults, getMembersCoach };
+// === DELETE (DELETE) === //
+async function deleteMember(id) {
+  const url = `${endpoint}/members/${id}.json`;
+  const response = await fetch(url, { method: "DELETE" });
+  console.log(response);
+  return response;
+}
+
+// === UPDATE Member Chairman ===///
+async function updateMemberChairman(id, member) {
+  const memberAsJson = JSON.stringify(member);
+  const url = `${endpoint}/members/${id}.json`;
+
+  const response = await fetch(url, { method: "PUT", body: memberAsJson });
+  const data = await response.json();
+  return response;
+}
+export { getMembers, getResults, getMembersCoach, deleteMember, updateMemberChairman };
