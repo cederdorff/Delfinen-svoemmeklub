@@ -43,8 +43,8 @@ async function showCompetitiveMember(memberObject) {
     /*html*/ `
     <tbody>
       <tr>
-        <td>${member.firstname + " " + member.lastname}</td>
-        <td>${member.age}</td>
+        <td>${memberObject.firstname + " " + memberObject.lastname}</td>
+        <td>${memberObject.age}</td>
         <td>${memberObject.disciplin}</td>
         <td>${memberObject.timeMiliSeconds}ms</td>
         <td>${memberObject.date}</td>
