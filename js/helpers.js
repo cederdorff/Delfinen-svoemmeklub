@@ -1,15 +1,16 @@
-const endpoint = "https://crud-1st-semester-projekt-default-rtdb.firebaseio.com/";
+const endpoint = "https://database-members-default-rtdb.firebaseio.com/";
 
 // ========== Laver objekt til array ========== //
-function prepareMembersData(dataObject) {
-  const membersArray = [];
-
-  for (const key in dataObject) {
-    const member = dataObject[key];
-    member.id = key;
-    membersArray.push(member);
+function prepareMembersData(data) {
+  const members = [];
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      const member = data[key];
+      member.id = key; // Assign the numeric key as the `id` property
+      members.push(member);
+    }
   }
-  return membersArray;
+  return members;
 }
 
 function prepareResultsData(dataObject) {

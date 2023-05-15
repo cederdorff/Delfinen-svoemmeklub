@@ -224,6 +224,65 @@
       </article>
     </dialog>
 
+
+<!--Update member Chairman form-->
+    <dialog id="update-member">
+      <button id="update-close-btn-chairman">X</button>
+      <h2>Opdater Medlem</h2>
+      <br /><br />
+      <form id="form-update-chairman">
+        <input type="hidden" name="id" />
+        <label for="firstname-update">Fornavn</label>
+        <input id="firstname-update" name="firstname" type="text" required />
+        <label for="lastname-update">Efternavn</label>
+        <input id="lastname-update" name="lastname" type="text" required />
+        <label for="age-update">Alder</label>
+        <input id="age-update" name="age" type="number" required />
+        <label for="phone-update">Telefon</label>
+        <input id="phone-update" name="phone" minlength="8" maxlength="8" type="tel" required />
+        <label for="email-update">E-mail</label>
+        <input id="email-update" name="email" type="email" required />
+        <p id="update-text">Medlemsform</p>
+        <div><label for="active-update">Aktivt</label>
+        <input id="active-update" name="active" type="radio" required />
+        <label for="passive-update">Passivt</label>
+        <input id="passive-update" name="active" type="radio" required />
+        </div>        
+        <p id="update-text">Medlemstype</p>
+        <div>        
+        <label for="activityform-update-option1">Konkurrencesvømmer</label>
+        <input id="activityform-update-option1" name="activityform" type="radio" required />
+        <label for="activityform-update-option2">Motionistsvømmer</label>
+        <input id="activityform-update-option2" name="activityform" type="radio" required />
+        <label for="activityform-update-option3">Seniorsvømmer</label>
+        <input id="activityform-update-option3" name="activityform" type="radio" required />
+        </div>
+        <label for="disciplines-update">Discipliner</label>
+        <input id="disciplines-update" name="discipliner" type="text"/>
+        <label for="coach-update">Træner</label>
+        <input id="coach-update" name="coach" type="text" />
+        <label for="subscriptionstart-update">Begyndelse af medlemsskab</label>
+        <input id="subscriptionstart-update" name="subscriptionstart" type="date" required />
+        <label for="subscriptionend-update">Afslutning på medlemsskab</label>
+        <input id="subscriptionend-update" name="subscriptionend" type="date" />
+
+        <input id="submit-btn-update" type="submit" />
+        <input id="reset-btn-update" type="reset" />      </form>
+    </dialog>
+
+     <!-- dialog - delete post -->
+    <dialog id="dialog-delete-member">
+      <h2>Do you want to delete this member?</h2>
+      <br />
+      <h3 id="dialog-delete-member-name">Name of member</h3>
+      <br>
+      <br>
+      <br>
+      <form method="dialog" id="form-delete-member">
+        <button id="confirm-delete-btn" data-id="${member.id}">Yes</button>
+        <button type="button" id="deny-delete-btn" class="btn-cancel">No</button>
+      </form>
+    </dialog>
     <script src="./js/script.js" type="module"></script>
   </body>
 </html>
