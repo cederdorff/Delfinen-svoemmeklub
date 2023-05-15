@@ -315,7 +315,9 @@ h3 {
   margin-bottom: 0%;
 }
 
-#close-button {
+#close-button,
+#submit-btn-create,
+#reset-btn-create {
   background-color: aquamarine;
   padding: 0.5em 1em;
   border-color: black;
@@ -325,6 +327,40 @@ h3 {
   cursor: pointer;
   align-content: left;
   width: 100%;
+}
+
+#form-create {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(12, 1fr);
+  text-shadow: 4px 4px 4px rgba(76, 57, 241, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #070707;
+  background-color: cornflowerblue;
+}
+#create-member {
+  margin-top: 6px;
+  background-color: cornflowerblue;
+  top: 30%;
+  border: 2px solid aquamarine;
+  width: 800px;
+  align-items: center;
+}
+#create-text {
+  font-size: 10px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+#submit-btn-create {
+  grid-row: 12;
+  grid-column: 1;
+}
+#reset-btn-create {
+  grid-row: 12;
+  grid-column: 2;
 }
 
 /* ---------- styling for coach page ---------- */
