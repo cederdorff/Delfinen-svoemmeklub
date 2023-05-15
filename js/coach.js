@@ -1,12 +1,17 @@
-"use strict";
+import { getMembersCoach } from "./rest-data.js";
 
-function showCompetitiveMembers(members) {
+async function showCompetitiveMembers(results) {
   createTable();
-  for (const member of members) {
-    if (member.activityForm == "konkurrence-svømmer" && member.age < 18) {
-      showCompetitiveMemberJunior(member);
-    } else if (member.activityForm == "konkurrence-svømmer" && member.age >= 18) {
-      showCompetitiveMembersSenior(member);
+  // for (const member of members) {
+  //   if (member.activityForm === "konkurrence-svømmer" ) {
+  //     console.log("Konkurrence-svømmer create");
+  //     showCompetitiveMember(member);
+  //   }
+  // }
+
+  for (const result of results) {
+    if (result.tournament === false) {
+      showCompetitiveMember(result);
     }
   }
 }
@@ -15,53 +20,37 @@ function createTable() {
   document.querySelector("#for-coach-article").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
-    <h2>Juniors</h2>
+    <h2>Atleter</h2>
     <table id="for-coach-table-junior">
-    <tr>
-      <th>Navn</th>
-      <th>Alder</th>
-      <th>Disciplin(er)</th>
-      <th>Tider</th>
-      <th>Dato</th>
-    </tr>
-    </table>
-    <h2>Seniors</h2>
-    <table id="for-coach-table-senior">
-    <tr>
-      <th>Navn</th>
-      <th>Alder</th>
-      <th>Disciplin(er)</th>
-      <th>Tider</th>
-      <th>Dato</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Navn</th>
+        <th>Alder</th>
+        <th>Disciplin(er)</th>
+        <th>Tider</th>
+        <th>Dato</th>
+      </tr>
+    </thead>
     </table>
     `
   );
 }
 
-function showCompetitiveMemberJunior(memberObject) {
+async function showCompetitiveMember(memberObject) {
+  const member = await getMembersCoach(memberObject.memberId);
   document.querySelector("#for-coach-table-junior").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
-    <tr>
-        <td>${memberObject.firstname + " " + memberObject.lastname}</td>
-        <td>${memberObject.age}</td>
-        <td>${memberObject.disciplines}</td>
-    </tr>
-    `
-  );
-}
-
-function showCompetitiveMembersSenior(memberObject) {
-  document.querySelector("#for-coach-table-senior").insertAdjacentHTML(
-    "beforeend",
-    /*html*/ `
+    <tbody>
       <tr>
-          <td>${memberObject.firstname + " " + memberObject.lastname}</td>
-          <td>${memberObject.age}</td>
-          <td>${memberObject.disciplines}</td>
+        <td>${member.firstname + " " + member.lastname}</td>
+        <td>${member.age}</td>
+        <td>${memberObject.disciplin}</td>
+        <td>${memberObject.timeMiliSeconds}ms</td>
+        <td>${memberObject.date}</td>
       </tr>
-      `
+    </tbody>
+    `
   );
 }
 

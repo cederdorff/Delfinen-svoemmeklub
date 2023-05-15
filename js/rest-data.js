@@ -20,4 +20,11 @@ async function getResults() {
   return results;
 }
 
-export { getMembers, getResults };
+async function getMembersCoach(id) {
+  const response = await fetch(`${endpoint}/members/${id}.json`);
+  const data = await response.json();
+
+  return data;
+}
+
+export { getMembers, getResults, getMembersCoach };
