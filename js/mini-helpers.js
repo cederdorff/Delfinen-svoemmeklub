@@ -21,6 +21,7 @@ function searchMembersForCashier(searchValue) {
 
 // ========== Search functions for chairman========== //
 function inputSearchChangedForChairman() {
+  console.log("Keyup")
   const value = this.value;
   const membersToShowForChairman = searchMembersForChairman(value); // send 'members' som argument
   showMembersChairman(membersToShowForChairman);
