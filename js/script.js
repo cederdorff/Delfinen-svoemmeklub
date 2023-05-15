@@ -6,7 +6,7 @@ import { getMembers, getResults } from "./rest-data.js";
 import { createMember } from "./helpers.js";
 import { showCompetitiveMembers } from "./coach.js";
 import { showMembersForCashier } from "./cashier.js";
-// import { inputSearchChanged } from "./mini-helpers.js";
+import { inputSearchChangedForCashier, inputSearchChangedForChairman } from "./mini-helpers.js";
 
 let members;
 let results;
@@ -99,7 +99,7 @@ async function updateMembersTable() {
 
 function showMembersChairman(members) {
   const tableBody = document.querySelector("#membersTableBody");
-  table.innerHTML = ""; // tømmer membersTAble for member elementer
+  tableBody.innerHTML = ""; // tømmer membersTAble for member elementer
   members.forEach(function (member) {
     var row = `
       <tr class="table-item">
@@ -180,7 +180,6 @@ function formatDate(dateString) {
   if (!dateString || isNaN(Date.parse(dateString))) {
     return ""; // Return an empty string for invalid or empty date string
   }
-  insertCashierAccountingSection();
   const date = new Date(dateString);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -241,4 +240,8 @@ async function createMemberSubmitted(event) {
   document.querySelector("#create-member").close(); // close dialog
 }
 
-export { members };
+
+// =====
+
+
+export { members, showMembersChairman, showMembersForCashier };

@@ -7,14 +7,13 @@ import { members } from "./script.js";
 function showMembersForCashier(membersList) {
   //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
-
-  insertAccountingResults();
+  table.innerHTML = ""; // tømmer cashier-members-tbody for member elementer
 
   //alle rows i tabel slettes
   for (let i = 0; i < table.rows.length; i++) {
     table.deleteRow(i);
   }
-
+  insertAccountingResults();
   //en row skabes i table for hvert medlem i members array
   for (const member of membersList) {
     showMemberForCashier(member);
@@ -50,12 +49,16 @@ function showMemberForCashier(memberObject) {
     document.querySelector("#cashier-dialog-btn-close").addEventListener("click", closeCashierDialog);
 
     // setting textcontent value equal to clicked member
-    document.querySelector("#cashier-dialog-name").textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
+    document.querySelector(
+      "#cashier-dialog-name"
+    ).textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
     document.querySelector("#cashier-dialog-age").textContent = `Alder: ${memberObject.age}`;
     document.querySelector("#cashier-dialog-phone").textContent = `Telefon: ${memberObject.phone}`;
     document.querySelector("#cashier-dialog-mail").textContent = `E-mail: ${memberObject.email}`;
     document.querySelector("#cashier-dialog-sub-start").textContent = `Tilmeldt: ${memberObject.subscriptionStart}`;
-    document.querySelector("#cashier-dialog-sub-end").textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
+    document.querySelector(
+      "#cashier-dialog-sub-end"
+    ).textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
     document.querySelector("#cashier-dialog-restance").textContent = `Restance: ${memberObject.restance}`;
 
     // show modal/dialog
@@ -137,3 +140,4 @@ function calculateRestance(membersList) {
 }
 
 export { showMembersForCashier };
+// insertCashierAccountingSection();
