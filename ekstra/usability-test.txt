@@ -1,0 +1,22 @@
+Forberedelse til Think aloud-test. 
+
+1. Find person, der kan prøve hjemmeside af.
+2. Forklar, at testen handler om hjemmesidens brugervenlighed og ikke om personens it-kompetencer. 
+3. Gør det klart, at brugeren skal tænke højt under hele testen. Hjælp gerne brugeren, hvis han/hun ikke taler i løbet af testen. Spørg f.eks. "Hvad tænker du nu?", "Hvad ser du?", etc. 
+4. Testen varer ca. 20 min.   
+5. Testen kan enten optages på lyd/video, eller der kan skrives noter undervejs.
+6. Normalt vil det være tilstrækkeligt, hvis omkring fem brugere har testet hjemmesiden.  
+
+
+
+Udkast til usability test - think aloud test
+
+1. Gå til forside. Beskriv, hvad du ser. Hvor vil du gå hen nu? Klik lidt rundt på siden. (2-3 min). 
+2. Find login og log på som formand (1-2 min)
+	- Username: 1234
+	- Password: 1234
+3. Find Sofie Larsen i databasen. Opdater hendes alder til 20 år. (2-3 min.)
+4. Find ud af, hvem der har den fjerdebedste tid i rygcrawl. (2-3 min.)
+5. Opret et nyt medlem med oplysninger, som du finder på. (3-4 min.) 
+6. Har Kasper Kristensen betalt kontingent? Hvor meget skylder han i givet fald svømmeklubben? (2-3 min.)
+7. Hvis du kunne ændre 1-2 ting på hjemmesiden, hvad skulle det så være?
