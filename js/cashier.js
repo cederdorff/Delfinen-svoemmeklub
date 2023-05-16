@@ -160,4 +160,4 @@ function cashierFilterByRestance() {
   }
 }
 
-export { showMembersForCashier, cashierFilterByRestance };
+export { showMembersForCashier, cashierFilterByRestance, insertAccountingResults };

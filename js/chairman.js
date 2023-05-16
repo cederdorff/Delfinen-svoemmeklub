@@ -61,8 +61,9 @@ document.querySelector("#forChairman").insertAdjacentHTML(
 
 document.querySelector(".btn-create").addEventListener("click", createMemberClicked);
 
-function showMembersChairman(member) {
+function showMembersChairman(members) {
   const tableBody = document.querySelector("#membersTableBody");
+  tableBody.innerHTML = ""
   members.forEach(function (member) {
     var row = `
       <tr class="table-item">
@@ -332,4 +333,4 @@ async function deleteMemberConfirmed(event) {
   }
 }
 
-export { showMembersChairman };
+export { showMembersChairman, createMemberClicked, createMemberSubmitted };

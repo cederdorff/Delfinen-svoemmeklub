@@ -1,6 +1,6 @@
 import { members } from "./script.js";
 import { showMembersForCashier } from "./cashier.js";
-import { showMembersChairman } from "./script.js";
+import { showMembersChairman } from "./chairman.js";
 
 // ===== Search functions for cashier========== //
 function inputSearchChangedForCashier() {
