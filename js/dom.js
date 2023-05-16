@@ -52,6 +52,9 @@ function addNewLinksToNavBarForChairman() {
 
   document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linksForChairman);
   console.log("Tre nye links sat ind");
+  document.querySelector("#login-as-text").textContent = "Du er logget ind som formand";
+  hideLogIn();
+  showLogOut();
 }
 // ========== Indsæt links i navbar for kasserer ========== //
 function addNewLinkToNavBarForCashier() {
@@ -64,6 +67,9 @@ function addNewLinkToNavBarForCashier() {
      `;
 
   document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linkForCashier);
+  document.querySelector("#login-as-text").textContent = "Du er logget ind som kasserer";
+  hideLogIn();
+  showLogOut();
 }
 
 // ========== Indsætlinks i navbar for træner ========== //
@@ -78,6 +84,56 @@ function addNewLinkToNavBarForCoach() {
 
   document.querySelector(".dropdown-content").insertAdjacentHTML("beforeend", linkForCoach);
   console.log("Link for træner sat ind");
+  document.querySelector("#login-as-text").textContent = "Du er logget ind som træner";
+  hideLogIn();
+  showLogOut();
 }
 
-export { determineWhatIsShownInNavbar };
+// ========== Hide login-in button ========== //
+function hideLogIn() {
+  document.querySelector("#login-btn").classList.add("hidden");
+}
+
+// ========== Show log-out-button ========== //
+function showLogOut() {
+  document.querySelector("#logout-btn").classList.remove("hidden");
+}
+
+// ========== Log-out clicked ========== //
+function logOutClicked() {
+  redirectToHomeAfterLogOut();
+  removeLinksFromNavBarAfterLogOutClicked();
+}
+
+// ========== Redirect to home ========== //
+function redirectToHomeAfterLogOut() {
+  location.href = "#home";
+  document.querySelector("#login-as-text").textContent = "";
+  document.querySelector("#login-btn").classList.remove("hidden");
+  document.querySelector("#logout-btn").classList.add("hidden");
+}
+
+// ========== Remove added links from nav bar after log out ========== //
+function removeLinksFromNavBarAfterLogOutClicked() {
+  const addedLinks = document.querySelectorAll(".dropdown-content section");
+  addedLinks.forEach((link) => link.remove());
+}
+
+// ========== Forklaring på removeLinksFromNavBarAfterLogOutClicked======== //
+// I removeLinksFromNavBarAfterLogOutClicked()-funktionen ønsker vi at fjerne visse links fra navigationslinjen, når brugeren logger ud, mens vi bevarer de andre links, der var der før.
+// Her er trinnene i funktionen:
+// Først finder vi det område i navigationslinjen, hvor de nye links blev tilføjet. Dette område har en bestemt klasse, der hedder .dropdown-content.
+// Inden i .dropdown-content-området leder vi efter alle de <section>-elementer, der indeholder de nye links, som blev tilføjet, når brugeren loggede ind.
+// Vi bruger querySelectorAll(".dropdown-content section") til at finde alle <section>-elementerne inde i .dropdown-content.
+// Når vi har fundet disse <section>-elementer, går vi igennem hver af dem ved hjælp af en forEach-løkke.
+// For hvert <section>-element anvender vi remove()-metoden til at fjerne det fra navigationslinjen. På den måde fjerner vi kun de nye links og bevarer de oprindelige links.
+// På den måde sørger vi for, at kun de links, der blev tilføjet ved login, bliver fjernet, mens de oprindelige links forbliver intakte.
+
+
+// ========== Remove links from nav bar after log out ========== //
+// function removeLinksFromNavBarAfterLogOutClicked() {
+// const element = document.querySelector(".dropdown-content");
+// element.innerHTML ="";
+// }
+
+export { determineWhatIsShownInNavbar, logOutClicked };

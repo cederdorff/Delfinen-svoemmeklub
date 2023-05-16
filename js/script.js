@@ -1,10 +1,10 @@
 "use strict";
 
 import { initViews } from "./view-router.js";
-import { determineWhatIsShownInNavbar } from "./dom.js";
+import { determineWhatIsShownInNavbar, logOutClicked } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { showCompetitiveMembers } from "./coach.js";
-import { showMembersForCashier, insertAccountingResults, cashierFilterByRestance } from "./cashier.js";
+import { showMembersForCashier, cashierFilterByRestance } from "./cashier.js";
 import { inputSearchChangedForCashier, inputSearchChangedForChairman } from "./mini-helpers.js";
 import { createMemberClicked, createMemberSubmitted, showMembersChairman } from "./chairman.js";
 
@@ -20,6 +20,9 @@ async function startApp() {
 
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
   document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
+
+  // log-out-button clicked
+  document.querySelector("#logout-btn").addEventListener("click", logOutClicked);
 
   document.querySelector("#restance-filter").addEventListener("change", cashierFilterByRestance);
 
