@@ -418,7 +418,7 @@ function filterUserSelection() {
 function applySorting() {
   const selectElement = document.getElementById("sort-by");
   const selectedValue = selectElement.value;
-  let sortedMembers;
+  let sortedMembers = members;
 
   if (filteredMembers.length > 0) {
     // Apply sorting to filtered members
