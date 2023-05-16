@@ -20,7 +20,7 @@ async function showCompetitiveMembers(results) {
   for (const result of results) {
     const member = await getMembersCoach(result.memberId);
     result.member = member;
-    console.log(result);
+    // console.log(result);
   }
 
   showCompetitiveMemberLoop(results);
