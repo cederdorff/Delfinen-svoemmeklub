@@ -59,7 +59,7 @@ async function loginInLoginClicked() {
   results = await getResults();
   determineWhatIsShownInNavbar();
   // Virker det bedre at kalde insertAccountingResults() herfra?
-  insertAccountingResults();
+  //insertAccountingResults();
   // tilføjet event listener for ny lavet coach knap.
   // document.querySelector("#for-coach-btn").addEventListener("click", showCompetitiveMembers(members, results));
   document.querySelector("#login").close();

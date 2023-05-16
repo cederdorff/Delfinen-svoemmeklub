@@ -7,7 +7,6 @@ function showMembersForCashier(membersList) {
   //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
   table.innerHTML = "";
-  // insertAccountingResults();
 
   insertAccountingResults();
 
