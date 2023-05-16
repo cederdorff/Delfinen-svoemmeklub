@@ -4,7 +4,7 @@ import { initViews } from "./view-router.js";
 import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { showCompetitiveMembers } from "./coach.js";
-import { showMembersForCashier } from "./cashier.js";
+import { showMembersForCashier, cashierFilterByRestance } from "./cashier.js";
 import { showMembersChairman } from "./chairman.js";
 
 let members;
@@ -19,6 +19,8 @@ async function startApp() {
 
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
   document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
+
+  document.querySelector("#restance-filter").addEventListener("change", cashierFilterByRestance);
 }
 
 function loginClicked() {

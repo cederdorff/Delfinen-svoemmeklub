@@ -140,6 +140,7 @@ function calculateRestance(membersList) {
 function cashierFilterByRestance() {
   const restance = document.querySelector("#restance-filter");
 
+  console.log("...");
   if (restance.checked) {
     memberInRestance = members.filter(checkRestance);
     showMembersForCashier(memberInRestance);
