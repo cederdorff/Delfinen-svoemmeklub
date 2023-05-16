@@ -48,16 +48,12 @@ function showMemberForCashier(memberObject) {
     document.querySelector("#cashier-dialog-btn-close").addEventListener("click", closeCashierDialog);
 
     // setting textcontent value equal to clicked member
-    document.querySelector(
-      "#cashier-dialog-name"
-    ).textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
+    document.querySelector("#cashier-dialog-name").textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
     document.querySelector("#cashier-dialog-age").textContent = `Alder: ${memberObject.age}`;
     document.querySelector("#cashier-dialog-phone").textContent = `Telefon: ${memberObject.phone}`;
     document.querySelector("#cashier-dialog-mail").textContent = `E-mail: ${memberObject.email}`;
     document.querySelector("#cashier-dialog-sub-start").textContent = `Tilmeldt: ${memberObject.subscriptionStart}`;
-    document.querySelector(
-      "#cashier-dialog-sub-end"
-    ).textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
+    document.querySelector("#cashier-dialog-sub-end").textContent = `Medlemskab ophører: ${memberObject.subscriptionEnd}`;
     document.querySelector("#cashier-dialog-restance").textContent = `Restance: ${memberObject.restance}`;
 
     // show modal/dialog
@@ -72,13 +68,22 @@ function closeCashierDialog() {
 
 //correcting restance to yes/no instead of true/false
 function correctRestance(memberObject) {
-  const yes = "Ja!";
-  const no = "Nej!";
+  const noRestance = "0 dkk";
+  const priceYouth = "1000 dkk";
+  const priceSenior = "1600 dkk";
+  const pricePensionist = "1200 dkk";
+  const pricePassive = "500 dkk";
 
-  if (memberObject.restance) {
-    return yes;
+  if (memberObject.restance && memberObject.age < 18 && memberObject.active) {
+    return priceYouth;
+  } else if (memberObject.restance && memberObject.age >= 18 && memberObject.age < 60 && memberObject.active) {
+    return priceSenior;
+  } else if (memberObject.restance && memberObject.age >= 60 && memberObject.active) {
+    return pricePensionist;
+  } else if (memberObject.restance && !memberObject.active) {
+    return pricePassive;
   } else {
-    return no;
+    return noRestance;
   }
 }
 
