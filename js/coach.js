@@ -14,6 +14,12 @@ async function showCompetitiveMembers(results) {
   document.querySelector("#coachFilterJunior").addEventListener("change", filterforCoach);
   document.querySelector("#coachFilterSenior").addEventListener("change", filterforCoach);
 
+  for (const result of results) {
+    const member = await getMembersCoach(result.memberId);
+    result.member = member;
+    console.log(result);
+  }
+
   showCompetitiveMemberLoop(results);
 }
 
@@ -28,13 +34,13 @@ function showCompetitiveMemberLoop(results) {
 }
 
 async function showCompetitiveMember(memberObject) {
-  const member = await getMembersCoach(memberObject.memberId);
+  // const member = await getMembersCoach(memberObject.memberId);
   document.querySelector("#coach-members-tbody").insertAdjacentHTML(
     "beforeend",
     /*html*/ `
       <tr>
-        <td>${member.firstname + " " + member.lastname}</td>
-        <td>${member.age}</td>
+        <td>${memberObject.member.firstname + " " + memberObject.member.lastname}</td>
+        <td>${memberObject.member.age}</td>
         <td>${memberObject.disciplin}</td>
         <td>${memberObject.timeMiliSeconds}ms</td>
         <td>${memberObject.date}</td>
@@ -46,16 +52,16 @@ async function showCompetitiveMember(memberObject) {
 // ========== Sort ========== //
 
 async function filterforCoach() {
-  let filterList = members;
+  let filterList = results;
   const top5 = document.querySelector("#coachFilterTop5");
   const junior = document.querySelector("#coachFilterJunior");
   const senior = document.querySelector("#coachFilterSenior");
 
   if (junior.checked) {
-    filterList = members.filter(isJunior);
+    filterList = results.filter(isJunior);
     console.log(filterList);
   } else if (senior.checked) {
-    filterList = members.filter(isSenior);
+    filterList = results.filter(isSenior);
     console.log(filterList);
   } else if (top5.checked) {
     filterList = results.sort(top5Results);
@@ -71,10 +77,10 @@ function top5Results(result1, result2) {
 }
 
 function isJunior(result) {
-  return result.age < 18 && result.activityForm === "konkurrence-svømmer";
+  return result.member.age < 18 && result.member.activityForm === "konkurrence-svømmer";
 }
 function isSenior(result) {
-  return result.age >= 18 && result.activityForm === "konkurrence-svømmer";
+  return result.member.age >= 18 && result.member.activityForm === "konkurrence-svømmer";
 }
 
 export { showCompetitiveMembers };
