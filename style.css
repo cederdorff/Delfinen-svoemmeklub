@@ -293,7 +293,7 @@ h1 {
 }
 
 .table-item:hover {
-  box-shadow: 5px 5px 5px 5px aquamarine;
+  box-shadow: 2px 2px 10px 2px aquamarine;
 }
 
 #memberDetailedView {
@@ -317,7 +317,9 @@ h3 {
 
 #close-button,
 #submit-btn-create,
-#reset-btn-create {
+#reset-btn-create,
+#submit-btn-update,
+#reset-btn-update {
   background-color: aquamarine;
   padding: 0.5em 1em;
   border-color: black;
@@ -329,7 +331,8 @@ h3 {
   width: 100%;
 }
 
-#form-create {
+#form-create,
+#form-update-chairman {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(12, 1fr);
@@ -340,25 +343,30 @@ h3 {
   color: #070707;
   background-color: cornflowerblue;
 }
-#create-member {
+#create-member,
+#update-member,
+#dialog-delete-member {
   margin-top: 6px;
   background-color: cornflowerblue;
-  top: 30%;
+  top: 15%;
   border: 2px solid aquamarine;
   width: 800px;
   align-items: center;
 }
-#create-text {
+#create-text,
+#update-text {
   font-size: 10px;
   font-weight: bold;
   font-family: Arial, sans-serif;
 }
 
-#submit-btn-create {
+#submit-btn-create,
+#submit-btn-update {
   grid-row: 12;
   grid-column: 1;
 }
-#reset-btn-create {
+#reset-btn-create,
+#reset-btn-update {
   grid-row: 12;
   grid-column: 2;
 }
@@ -405,4 +413,40 @@ h3 {
 #cashier-members tr:hover {
   background-color: #bebaba;
   opacity: 1;
+}
+
+/* update member chairman styling */
+
+/* delete member chairman styling */
+
+#dialog-delete-member-name {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+#confirm-delete-btn,
+#deny-delete-btn {
+  background-color: aquamarine;
+  padding: 0.5em 1em;
+  border-color: black;
+  font-size: small;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  align-content: left;
+  width: 100%;
+}
+
+/* sort - filter - search chairman */
+#sort-filter-search-members {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(8, 1fr);
+}
+#sort-by-label,
+#filter-by-label {
+  text-align: right;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
 }

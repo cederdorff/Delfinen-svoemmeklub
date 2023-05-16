@@ -1,19 +1,17 @@
-"use strict";
-
 import { members } from "./script.js";
 
+let memberInRestance;
 // ========== Cashier functions ========== //
 
 function showMembersForCashier(membersList) {
   //#cashier-members-tbody sættes til en variable kaldt "table"
   const table = document.querySelector("#cashier-members-tbody");
+  table.innerHTML = "";
 
   insertAccountingResults();
 
-  //alle rows i tabel slettes
-  for (let i = 0; i < table.rows.length; i++) {
-    table.deleteRow(i);
-  }
+  //alle rows i tabel nulstilles til tom string
+  document.querySelector("#cashier-members-tbody").textContent = "";
 
   //en row skabes i table for hvert medlem i members array
   for (const member of membersList) {
@@ -23,7 +21,7 @@ function showMembersForCashier(membersList) {
 
 //function for creating row member element
 function showMemberForCashier(memberObject) {
-  correctRestance(memberObject);
+  const restance = correctRestance(memberObject);
 
   const htmlCashier = /*html*/ `
                     <tr>
@@ -33,7 +31,7 @@ function showMemberForCashier(memberObject) {
                       <td>${memberObject.phone}</td>
                       <td>${memberObject.subscriptionStart}</td>
                       <td>${memberObject.subscriptionEnd}</td>
-                      <td>${memberObject.restance} ${memberObject.active}</td>
+                      <td>${restance}</td>
                     </tr>
   `;
 
@@ -70,10 +68,22 @@ function closeCashierDialog() {
 
 //correcting restance to yes/no instead of true/false
 function correctRestance(memberObject) {
-  if (memberObject.restance) {
-    memberObject.restance = "Ja!";
+  const noRestance = "0 dkk";
+  const priceYouth = "1000 dkk";
+  const priceSenior = "1600 dkk";
+  const pricePensionist = "1200 dkk";
+  const pricePassive = "500 dkk";
+
+  if (memberObject.restance && memberObject.age < 18 && memberObject.active) {
+    return priceYouth;
+  } else if (memberObject.restance && memberObject.age >= 18 && memberObject.age < 60 && memberObject.active) {
+    return priceSenior;
+  } else if (memberObject.restance && memberObject.age >= 60 && memberObject.active) {
+    return pricePensionist;
+  } else if (memberObject.restance && !memberObject.active) {
+    return pricePassive;
   } else {
-    memberObject.restance = "Nej!";
+    return noRestance;
   }
 }
 
@@ -136,4 +146,23 @@ function calculateRestance(membersList) {
   return result;
 }
 
-export { showMembersForCashier };
+//filtering cashiers list by restance
+function cashierFilterByRestance() {
+  const restance = document.querySelector("#restance-filter");
+
+  console.log("...");
+  if (restance.checked) {
+    memberInRestance = members.filter(checkRestance);
+    showMembersForCashier(memberInRestance);
+  } else {
+    showMembersForCashier(members);
+  }
+
+  function checkRestance(member) {
+    if (member.restance) {
+      return member;
+    }
+  }
+}
+
+export { showMembersForCashier, cashierFilterByRestance, insertAccountingResults };
