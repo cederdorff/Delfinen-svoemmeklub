@@ -63,7 +63,7 @@ document.querySelector(".btn-create").addEventListener("click", createMemberClic
 
 function showMembersChairman(members) {
   const tableBody = document.querySelector("#membersTableBody");
-  tableBody.innerHTML = ""
+  tableBody.innerHTML = "";
   members.forEach(function (member) {
     var row = `
       <tr class="table-item">
@@ -166,7 +166,7 @@ function formatDate(dateString) {
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
-  return `${day}/${month}/${year}`;
+  return `${month}/${day}/${year}`;
 }
 
 async function createMemberSubmitted(event) {
@@ -251,7 +251,7 @@ function updateMemberChairmanClicked(member) {
     updateForm.querySelector("#activityform-update-option3").checked = true;
   }
 
-  // Convert the date format from "dd/mm/yyyy" to "yyyy-mm-dd"
+  // Convert the date format from "mm/dd/yyyy" to "yyyy-mm-dd"
   const subscriptionStart = formatDateReversed(member.subscriptionStart);
   const subscriptionEnd = formatDateReversed(member.subscriptionEnd);
 
@@ -265,7 +265,7 @@ function formatDateReversed(dateString) {
   if (dateString) {
     const parts = dateString.split("/");
     if (parts.length === 3) {
-      const [day, month, year] = parts;
+      const [month, day, year] = parts;
       return `${year}-${month}-${day}`;
     }
   }
