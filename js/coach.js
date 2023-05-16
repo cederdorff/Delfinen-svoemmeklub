@@ -17,7 +17,7 @@ async function showCompetitiveMembers(results) {
   for (const result of results) {
     const member = await getMembersCoach(result.memberId);
     result.member = member;
-    console.log(result);
+    // console.log(result);
   }
 
   showCompetitiveMemberLoop(results);
@@ -60,13 +60,18 @@ async function filterforCoach() {
   if (junior.checked) {
     filterList = results.filter(isJunior);
     console.log(filterList);
+    showCompetitiveMemberLoop(filterList);
   } else if (senior.checked) {
     filterList = results.filter(isSenior);
     console.log(filterList);
+    showCompetitiveMemberLoop(filterList);
   } else if (top5.checked) {
     filterList = results.sort(top5Results);
-    filterList.splice(5);
+    // filterList.splice(5);
     console.log(filterList);
+    showCompetitiveMemberLoop(filterList);
+  } else {
+    showCompetitiveMemberLoop(results);
   }
 }
 
