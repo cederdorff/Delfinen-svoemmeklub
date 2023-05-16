@@ -1,7 +1,6 @@
-"use strict";
-
 import { members } from "./script.js";
 
+let memberInRestance;
 // ========== Cashier functions ========== //
 
 function showMembersForCashier(membersList) {
@@ -10,10 +9,10 @@ function showMembersForCashier(membersList) {
   table.innerHTML = "";
   // insertAccountingResults();
 
-  //alle rows i tabel slettes
-  for (let i = 0; i < table.rows.length; i++) {
-    table.deleteRow(i);
-  }
+  insertAccountingResults();
+
+  //alle rows i tabel nulstilles til tom string
+  document.querySelector("#cashier-members-tbody").textContent = "";
 
   //en row skabes i table for hvert medlem i members array
   for (const member of membersList) {
@@ -23,7 +22,7 @@ function showMembersForCashier(membersList) {
 
 //function for creating row member element
 function showMemberForCashier(memberObject) {
-  correctRestance(memberObject);
+  const restance = correctRestance(memberObject);
 
   const htmlCashier = /*html*/ `
                     <tr>
@@ -33,7 +32,7 @@ function showMemberForCashier(memberObject) {
                       <td>${memberObject.phone}</td>
                       <td>${memberObject.subscriptionStart}</td>
                       <td>${memberObject.subscriptionEnd}</td>
-                      <td>${memberObject.restance} ${memberObject.active}</td>
+                      <td>${restance}</td>
                     </tr>
   `;
 
@@ -74,10 +73,13 @@ function closeCashierDialog() {
 
 //correcting restance to yes/no instead of true/false
 function correctRestance(memberObject) {
+  const yes = "Ja!";
+  const no = "Nej!";
+
   if (memberObject.restance) {
-    memberObject.restance = "Ja!";
+    return yes;
   } else {
-    memberObject.restance = "Nej!";
+    return no;
   }
 }
 
@@ -140,4 +142,22 @@ function calculateRestance(membersList) {
   return result;
 }
 
-export { showMembersForCashier, insertAccountingResults };
+//filtering cashiers list by restance
+function cashierFilterByRestance() {
+  const restance = document.querySelector("#restance-filter");
+
+  if (restance.checked) {
+    memberInRestance = members.filter(checkRestance);
+    showMembersForCashier(memberInRestance);
+  } else {
+    showMembersForCashier(members);
+  }
+
+  function checkRestance(member) {
+    if (member.restance) {
+      return member;
+    }
+  }
+}
+
+export { showMembersForCashier, cashierFilterByRestance };
