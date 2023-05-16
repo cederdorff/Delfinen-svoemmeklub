@@ -4,7 +4,7 @@ import { initViews } from "./view-router.js";
 import { determineWhatIsShownInNavbar } from "./dom.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { showCompetitiveMembers } from "./coach.js";
-import { showMembersForCashier, insertAccountingResults } from "./cashier.js";
+import { showMembersForCashier, insertAccountingResults, cashierFilterByRestance } from "./cashier.js";
 import { inputSearchChangedForCashier, inputSearchChangedForChairman } from "./mini-helpers.js";
 import { createMemberClicked, createMemberSubmitted, showMembersChairman } from "./chairman.js";
 
