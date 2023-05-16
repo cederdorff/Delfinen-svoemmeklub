@@ -333,4 +333,126 @@ async function deleteMemberConfirmed(event) {
   }
 }
 
+// sortering //
+// eventlistener på valg af sortering og filtrering //
+const selectElementSort = document.getElementById("sort-by");
+selectElementSort.addEventListener("change", applySorting);
+
+const selectElementFilter = document.getElementById("filter-by");
+selectElementFilter.addEventListener("change", filterUserSelection);
+
+function sortByAnything(list, property) {
+  return list.sort((a, b) => {
+    const propA = a[property];
+    const propB = b[property];
+
+    if (typeof propA === "number" && typeof propB === "number") {
+      return propA - propB; // Numeric comparison
+    }
+
+    const strA = String(propA).toUpperCase();
+    const strB = String(propB).toUpperCase();
+
+    if (strA < strB) {
+      return -1;
+    }
+    if (strA > strB) {
+      return 1;
+    }
+    return 0;
+  });
+}
+
+function sortMembersAlphabetically(members) {
+  console.log(members);
+  return sortByAnything(members, "firstname");
+}
+
+function sortMembersAlphabeticallyReversed(members) {
+  console.log(members);
+  return sortByAnything(members, "firstname").reverse();
+}
+
+function sortMembersByAge(members) {
+  console.log(members);
+  return sortByAnything(members, "age");
+}
+
+function sortMembersByAgeReversed(members) {
+  console.log(members);
+  return sortByAnything(members, "age").reverse();
+}
+
+function sortMembersByActivityform(members) {
+  console.log(members);
+  return sortByAnything(members, "activityForm");
+}
+
+function sortMembersByCoach(members) {
+  console.log(members);
+  return sortByAnything(members, "coach").reverse();
+}
+
+let filteredMembers = [];
+
+function filterUserSelection() {
+  const selectElement = document.getElementById("filter-by");
+  const selectedValue = selectElement.value;
+
+  if (selectedValue === "konkurrencesvømmer") {
+    filteredMembers = members.filter((member) => member.activityForm === "konkurrence-svømmer");
+  } else if (selectedValue === "seniorsvømmer") {
+    filteredMembers = members.filter((member) => member.activityForm === "senior-svømmer");
+  } else if (selectedValue === "motionistsvømmer") {
+    filteredMembers = members.filter(
+      (member) => member.activityForm === "motionist-svømmer" || member.activityForm === "Motionist-svømmer"
+    );
+  } else if (selectedValue === "svømmeremedtræner") {
+    filteredMembers = members.filter((member) => member.coach !== "");
+  } else {
+    filteredMembers = [];
+  }
+  applySorting();
+}
+
+function applySorting() {
+  const selectElement = document.getElementById("sort-by");
+  const selectedValue = selectElement.value;
+  let sortedMembers;
+
+  if (filteredMembers.length > 0) {
+    // Apply sorting to filtered members
+    if (selectedValue === "a-z") {
+      sortedMembers = sortMembersAlphabetically(filteredMembers);
+    } else if (selectedValue === "z-a") {
+      sortedMembers = sortMembersAlphabeticallyReversed(filteredMembers);
+    } else if (selectedValue === "age-low-to-high") {
+      sortedMembers = sortMembersByAge(filteredMembers);
+    } else if (selectedValue === "age-high-to-low") {
+      sortedMembers = sortMembersByAgeReversed(filteredMembers);
+    } else if (selectedValue === "activityform") {
+      sortedMembers = sortMembersByActivityform(filteredMembers);
+    } else if (selectedValue === "coach") {
+      sortedMembers = sortMembersByCoach(filteredMembers);
+    }
+  } else {
+    // Apply sorting to all members
+    if (selectedValue === "a-z") {
+      sortedMembers = sortMembersAlphabetically(members);
+    } else if (selectedValue === "z-a") {
+      sortedMembers = sortMembersAlphabeticallyReversed(members);
+    } else if (selectedValue === "age-low-to-high") {
+      sortedMembers = sortMembersByAge(members);
+    } else if (selectedValue === "age-high-to-low") {
+      sortedMembers = sortMembersByAgeReversed(members);
+    } else if (selectedValue === "activityform") {
+      sortedMembers = sortMembersByActivityform(members);
+    } else if (selectedValue === "coach") {
+      sortedMembers = sortMembersByCoach(members);
+    }
+  }
+
+  showMembersChairman(sortedMembers);
+}
+
 export { showMembersChairman, createMemberClicked, createMemberSubmitted };

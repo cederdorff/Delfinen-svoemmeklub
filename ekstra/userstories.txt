@@ -66,8 +66,8 @@ Jeg vil som kasserer kunne se en oversigt over, hvor meget kontingent klubben ha
 
 Jeg vil som kasserer kunne se en liste over medlemmer, der har ubetalte kontingenter.
 
-Jeg vil som træner kunne se en top 5-liste over resultaterne for hver svømmedisciplin.
+Jeg vil som træner kunne se en top 5-liste over resultaterne for hver svømmedisciplin.---
 
-Jeg vil som træner kunne tilføje resultater for en ny svømmekonkurrence.
+Jeg vil som træner kunne tilføje resultater for en ny svømmekonkurrence.----
 
-Jeg vil som træner kunne tilføje resultater for individuel personlig træning i hver disciplin.
+Jeg vil som træner kunne tilføje resultater for individuel personlig træning i hver disciplin.---
