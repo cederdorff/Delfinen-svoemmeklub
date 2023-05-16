@@ -21,6 +21,8 @@ async function startApp() {
   document.querySelector("#login-btn").addEventListener("click", loginClicked);
   document.querySelector("#logon-btn").addEventListener("click", loginInLoginClicked);
 
+  document.querySelector("#restance-filter").addEventListener("change", cashierFilterByRestance);
+
   // -- Adding eventlisteners for search functions
   // --Eventlisteners for search functions for Cashier
   document.querySelector("#input-search-cashier").addEventListener("keyup", inputSearchChangedForCashier);
