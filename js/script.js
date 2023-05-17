@@ -1,7 +1,7 @@
 "use strict";
 
 import { initViews } from "./view-router.js";
-import { determineWhatIsShownInNavbar, logOutClicked } from "./dom.js";
+import { determineWhatIsShownInNavbar, logOutClicked } from "./login-logout.js";
 import { getMembers, getResults } from "./rest-data.js";
 import { showCompetitiveMembers } from "./coach.js";
 import { showMembersForCashier, cashierFilterByRestance } from "./cashier.js";
