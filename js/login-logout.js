@@ -72,7 +72,7 @@ function addNewLinkToNavBarForCashier() {
   showLogOut();
 }
 
-// ========== Indsætlinks i navbar for træner ========== //
+// ========== Indsæt links i navbar for træner ========== //
 function addNewLinkToNavBarForCoach() {
   // if (passwordCoach && usernameCoach) {
   const linkForCoach =
