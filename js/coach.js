@@ -7,6 +7,7 @@ let filterList;
 let isFilterOn;
 
 // ========== show competitve members ========== //
+//import { members } from "./script.js";
 
 async function showCompetitiveMembers(results) {
   // event listener til sort
@@ -52,6 +53,35 @@ async function showCompetitiveMember(memberObject) {
       </tr>
     `
   );
+
+  document.querySelector("#coach-members-tbody tr:last-child").addEventListener("click", showAthlete);
+  
+  function showAthlete(event) {
+    console.log("athlete clicked");
+    event.preventDefault;
+
+    // adding evenlistener for close btn in dialog view
+    document.querySelector("#coach-dialog-btn-close").addEventListener("click", closeCoachDialog);
+
+    // setting textcontent value equal to clicked member
+    document.querySelector("#coach-dialog-name").textContent = `Navn: ${memberObject.member.firstname} ${memberObject.lastname}`;
+    document.querySelector("#coach-dialog-age").textContent = `Alder: ${memberObject.member.age}`;
+    document.querySelector("#coach-dialog-phone").textContent = `Telefon: ${memberObject.member.phone}`;
+    document.querySelector("#coach-dialog-mail").textContent = `E-mail: ${memberObject.member.email}`;
+    document.querySelector("#coach-dialog-activity-form").textContent = `Aktivitets-form: ${memberObject.member.activityForm}`;
+    document.querySelector("#coach-dialog-disciplines").textContent = `Disciplin(er): ${memberObject.member.disciplines}`;
+    document.querySelector("#coach-dialog-coach").textContent = `Træner: ${memberObject.member.coach}`;
+    document.querySelector("#coach-dialog-active").textContent = `Aktiv: ${memberObject.member.active}`;
+    
+
+    // show modal/dialog
+    document.querySelector("#coach-dialog").showModal();
+  }
+}
+
+//close cashier dialog
+function closeCoachDialog() {
+  document.querySelector("#coach-dialog").close();
 }
 
 // ========== Sort ========== //
