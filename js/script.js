@@ -77,4 +77,4 @@ async function updateMembersTable() {
   showCompetitiveMembers(results);
 }
 
-export { members, updateMembersTable };
+export { members, results, updateMembersTable };
