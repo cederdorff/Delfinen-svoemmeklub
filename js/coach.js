@@ -100,8 +100,9 @@ async function filterforCoach() {
     console.log(filterList);
     showCompetitiveMemberLoop(filterList);
   } else if (top5.checked) {
-    filterList = results.sort(top5Results);
+    filterList = results.sort(top5Results).slice(); // .slice bliver brugt til at lave en copy results, som splice går ind og ændre.
     isFilterOn = true;
+    filterList.splice(5);
     console.log(filterList);
     showCompetitiveMemberLoop(filterList);
   } else {
