@@ -54,7 +54,7 @@ async function showCompetitiveMember(memberObject) {
     `
   );
 
-  document.querySelector("#for-coach-table-junior tbody:last-child").addEventListener("click", showAthlete);
+  document.querySelector("#coach-members-tbody tr:last-child").addEventListener("click", showAthlete);
   
   function showAthlete(event) {
     console.log("athlete clicked");
@@ -64,14 +64,14 @@ async function showCompetitiveMember(memberObject) {
     document.querySelector("#coach-dialog-btn-close").addEventListener("click", closeCoachDialog);
 
     // setting textcontent value equal to clicked member
-    document.querySelector("#coach-dialog-name").textContent = `Navn: ${memberObject.firstname} ${memberObject.lastname}`;
-    document.querySelector("#coach-dialog-age").textContent = `Alder: ${memberObject.age}`;
-    document.querySelector("#coach-dialog-phone").textContent = `Telefon: ${memberObject.phone}`;
-    document.querySelector("#coach-dialog-mail").textContent = `E-mail: ${memberObject.email}`;
-    document.querySelector("#coach-dialog-activity-form").textContent = `Aktivitets-form: ${memberObject.activityForm}`;
-    document.querySelector("#coach-dialog-disciplines").textContent = `Disciplin(er): ${memberObject.disciplines}`;
-    document.querySelector("#coach-dialog-coach").textContent = `Træner: ${memberObject.coach}`;
-    document.querySelector("#coach-dialog-active").textContent = `Aktiv: ${memberObject.active}`;
+    document.querySelector("#coach-dialog-name").textContent = `Navn: ${memberObject.member.firstname} ${memberObject.lastname}`;
+    document.querySelector("#coach-dialog-age").textContent = `Alder: ${memberObject.member.age}`;
+    document.querySelector("#coach-dialog-phone").textContent = `Telefon: ${memberObject.member.phone}`;
+    document.querySelector("#coach-dialog-mail").textContent = `E-mail: ${memberObject.member.email}`;
+    document.querySelector("#coach-dialog-activity-form").textContent = `Aktivitets-form: ${memberObject.member.activityForm}`;
+    document.querySelector("#coach-dialog-disciplines").textContent = `Disciplin(er): ${memberObject.member.disciplines}`;
+    document.querySelector("#coach-dialog-coach").textContent = `Træner: ${memberObject.member.coach}`;
+    document.querySelector("#coach-dialog-active").textContent = `Aktiv: ${memberObject.member.active}`;
     
 
     // show modal/dialog
@@ -82,74 +82,6 @@ async function showCompetitiveMember(memberObject) {
 //close cashier dialog
 function closeCoachDialog() {
   document.querySelector("#coach-dialog").close();
-}
-
-// ========== Sort ========== //
-function sortByForCoach(event) {
-  const value = event.target.value;
-
-  if (value === "none") {
-    updateMembersTable();
-  } else if (value === "age" && !isFilterOn) {
-    results.sort(compareAge);
-    showCompetitiveMemberLoop(results);
-  } else if (value === "age" && isFilterOn) {
-    filterList.sort(compareAge);
-    showCompetitiveMemberLoop(filterList);
-  } else if (value === "time" && !isFilterOn) {
-    results.sort(compareTime);
-    showCompetitiveMemberLoop(results);
-  } else if (value === "time" && isFilterOn) {
-    filterList.sort(compareTime);
-    showCompetitiveMemberLoop(filterList);
-  }
-
-  function compareAge(result1, result2) {
-    return result1.member.age - result2.member.age;
-  }
-
-  function compareTime(result1, result2) {
-    return result1.timeMiliSeconds - result2.timeMiliSeconds;
-  }
-}
-
-// ========== filter ========== //
-async function filterforCoach() {
-  const top5 = document.querySelector("#coachFilterTop5");
-  const junior = document.querySelector("#coachFilterJunior");
-  const senior = document.querySelector("#coachFilterSenior");
-
-  if (junior.checked) {
-    filterList = results.filter(isJunior);
-    isFilterOn = true;
-    console.log(filterList);
-    showCompetitiveMemberLoop(filterList);
-  } else if (senior.checked) {
-    filterList = results.filter(isSenior);
-    isFilterOn = true;
-    console.log(filterList);
-    showCompetitiveMemberLoop(filterList);
-  } else if (top5.checked) {
-    filterList = results.sort(top5Results);
-    isFilterOn = true;
-    console.log(filterList);
-    showCompetitiveMemberLoop(filterList);
-  } else {
-    filterList = results;
-    isFilterOn = false;
-    showCompetitiveMemberLoop(results);
-  }
-}
-
-function top5Results(result1, result2) {
-  return result1.timeMiliSeconds - result2.timeMiliSeconds;
-}
-
-function isJunior(result) {
-  return result.member.age < 18 && result.member.activityForm === "konkurrence-svømmer";
-}
-function isSenior(result) {
-  return result.member.age >= 18 && result.member.activityForm === "konkurrence-svømmer";
 }
 
 // ========== Sort ========== //
