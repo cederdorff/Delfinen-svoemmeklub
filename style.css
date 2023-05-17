@@ -392,7 +392,9 @@ h3 {
 }
 
 #for-coach-article th,
-#for-coach-article td {
+#for-coach-article td,
+#cashier-members th,
+#cashier-members td {
   padding: 10px;
   text-align: left;
 }
