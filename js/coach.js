@@ -50,12 +50,20 @@ async function showCompetitiveMember(memberObject) {
         <td>${memberObject.disciplin}</td>
         <td>${memberObject.timeMiliSeconds}ms</td>
         <td>${memberObject.date}</td>
+        <td><button class="coachTableUpdateBtn">Update svømmetid</button></td>
       </tr>
     `
   );
 
   document.querySelector("#coach-members-tbody tr:last-child").addEventListener("click", showAthlete);
-  
+
+  document
+    .querySelector("#coach-members-tbody tr:last-child .coachTableUpdateBtn")
+    .addEventListener("click", (event) => {
+      event.stopPropagation();
+      coachTableUpdate();
+    });
+
   function showAthlete(event) {
     console.log("athlete clicked");
     event.preventDefault;
@@ -64,22 +72,37 @@ async function showCompetitiveMember(memberObject) {
     document.querySelector("#coach-dialog-btn-close").addEventListener("click", closeCoachDialog);
 
     // setting textcontent value equal to clicked member
-    document.querySelector("#coach-dialog-name").textContent = `Navn: ${memberObject.member.firstname} ${memberObject.lastname}`;
+    document.querySelector(
+      "#coach-dialog-name"
+    ).textContent = `Navn: ${memberObject.member.firstname} ${memberObject.lastname}`;
     document.querySelector("#coach-dialog-age").textContent = `Alder: ${memberObject.member.age}`;
     document.querySelector("#coach-dialog-phone").textContent = `Telefon: ${memberObject.member.phone}`;
     document.querySelector("#coach-dialog-mail").textContent = `E-mail: ${memberObject.member.email}`;
-    document.querySelector("#coach-dialog-activity-form").textContent = `Aktivitets-form: ${memberObject.member.activityForm}`;
-    document.querySelector("#coach-dialog-disciplines").textContent = `Disciplin(er): ${memberObject.member.disciplines}`;
+    document.querySelector(
+      "#coach-dialog-activity-form"
+    ).textContent = `Aktivitets-form: ${memberObject.member.activityForm}`;
+    document.querySelector(
+      "#coach-dialog-disciplines"
+    ).textContent = `Disciplin(er): ${memberObject.member.disciplines}`;
     document.querySelector("#coach-dialog-coach").textContent = `Træner: ${memberObject.member.coach}`;
     document.querySelector("#coach-dialog-active").textContent = `Aktiv: ${memberObject.member.active}`;
-    
 
     // show modal/dialog
     document.querySelector("#coach-dialog").showModal();
+
+    // update swim time
+    function coachTableUpdate() {
+      const updateForm = document.querySelector("#update-swimtime-coach-form");
+      document.querySelector(
+        "#update-swimtime-coach-person"
+      ).textContent = `Svømme tid for: ${memberObject.member.firstname} ${memberObject.member.lastname}`;
+      updateForm.time.value = memberObject.timeMiliSeconds;
+      document.querySelector("#update-swimtime-coach-dialog").showModal();
+    }
   }
 }
 
-//close cashier dialog
+//close coach dialog
 function closeCoachDialog() {
   document.querySelector("#coach-dialog").close();
 }

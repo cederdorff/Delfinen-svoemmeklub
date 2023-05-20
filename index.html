@@ -261,6 +261,7 @@
                 <th>Disciplin(er)</th>
                 <th>Tider</th>
                 <th>Dato</th>
+                <th>Update</th>
               </tr>
             </thead>
             <tbody id="coach-members-tbody"></tbody>
@@ -289,22 +290,22 @@
     <!-- coach dialog window -->
     <dialog id="coach-dialog">
       <article>
-        <h2>Atlet: </h2>
+        <h2>Atlet:</h2>
         <ul>
-          <li id="coach-dialog-name">Navn: </li>
-          <li id="coach-dialog-age">Alder: </li>
-          <li id="coach-dialog-phone">Telefon: </li>
-          <li id="coach-dialog-mail">E-mail: </li>
-          <li id="coach-dialog-activity-form">Aktivitets-form: </li>
-          <li id="coach-dialog-disciplines">Disciplin(er): </li>
-          <li id="coach-dialog-coach">Træner: </li>
-          <li id="coach-dialog-active">Aktiv: </li>
+          <li id="coach-dialog-name">Navn:</li>
+          <li id="coach-dialog-age">Alder:</li>
+          <li id="coach-dialog-phone">Telefon:</li>
+          <li id="coach-dialog-mail">E-mail:</li>
+          <li id="coach-dialog-activity-form">Aktivitets-form:</li>
+          <li id="coach-dialog-disciplines">Disciplin(er):</li>
+          <li id="coach-dialog-coach">Træner:</li>
+          <li id="coach-dialog-active">Aktiv:</li>
         </ul>
         <button id="coach-dialog-btn-close">luk?</button>
       </article>
     </dialog>
 
-<!--Update member Chairman form-->
+    <!--Update member Chairman form-->
     <dialog id="update-member">
       <button id="update-close-btn-chairman">X</button>
       <h2>Opdater Medlem</h2>
@@ -384,6 +385,19 @@
         </select>
       </div>
     </dialog>
+
+    <!-- dialog - update swimtime coach -->
+    <dialog id="update-swimtime-coach-dialog">
+      <h2>Update svømmetid</h2>
+      <form id="update-swimtime-coach-form">
+        <p id="update-swimtime-coach-person">Svømme tid for:</p>
+        <label for="update-swimtime-coach"
+          >Ny svømme tid i ms.
+          <input type="number" name="time" id="update-swimtime-coach" placeholder="skriv nu tid..." required />
+        </label>
+      </form>
+    </dialog>
+
     <script src="./js/script.js" type="module"></script>
   </body>
 </html>
