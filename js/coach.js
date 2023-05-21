@@ -91,14 +91,14 @@ async function showCompetitiveMember(memberObject) {
     document.querySelector("#coach-dialog").showModal();
 
     // update swim time
-    function coachTableUpdate() {
-      const updateForm = document.querySelector("#update-swimtime-coach-form");
-      document.querySelector(
-        "#update-swimtime-coach-person"
-      ).textContent = `Svømme tid for: ${memberObject.member.firstname} ${memberObject.member.lastname}`;
-      updateForm.time.value = memberObject.timeMiliSeconds;
-      document.querySelector("#update-swimtime-coach-dialog").showModal();
-    }
+  }
+  function coachTableUpdate() {
+    const updateForm = document.querySelector("#update-swimtime-coach-form");
+    document.querySelector(
+      "#update-swimtime-coach-person"
+    ).textContent = `Svømme tid for: ${memberObject.member.firstname} ${memberObject.member.lastname}`;
+    updateForm.time.value = memberObject.timeMiliSeconds;
+    document.querySelector("#update-swimtime-coach-dialog").showModal();
   }
 }
 
