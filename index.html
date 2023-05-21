@@ -389,13 +389,11 @@
     <!-- dialog - update swimtime coach -->
     <dialog id="update-swimtime-coach-dialog">
       <h2>Update svømmetid</h2>
-      <form id="update-swimtime-coach-form">
+      <form id="update-swimtime-coach-form" method="dialog">
         <p id="update-swimtime-coach-person"></p>
         <p id="update-swimtime-coach-oldtime"></p>
-        <label for="update-swimtime-coach"
-          >Ny svømme tid i ms.
-          <input type="number" name="time" id="update-swimtime-coach" placeholder="skriv nu tid..." required />
-        </label>
+        <label for="update-swimtime-coach">Ny svømme tid i ms. </label>
+        <input type="number" name="time" id="update-swimtime-coach" placeholder="skriv nu tid..." required />
         <div id="coach-update-btn-container">
           <button type="button" class="btn-close-coach">Close</button>
           <button type="submit">Update</button>
