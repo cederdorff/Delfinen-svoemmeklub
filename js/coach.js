@@ -10,6 +10,9 @@ let isFilterOn;
 //import { members } from "./script.js";
 
 async function showCompetitiveMembers(results) {
+  // event listener til svømmetid update
+  document.querySelector("#update-swimtime-coach-form .btn-close-coach").addEventListener("click", cancelUpdate);
+
   // event listener til sort
   document.querySelector("#sortBy-for-coach").addEventListener("change", sortByForCoach);
 
@@ -97,9 +100,19 @@ async function showCompetitiveMember(memberObject) {
     document.querySelector(
       "#update-swimtime-coach-person"
     ).textContent = `Svømme tid for: ${memberObject.member.firstname} ${memberObject.member.lastname}`;
+    document.querySelector(
+      "#update-swimtime-coach-oldtime"
+    ).textContent = `Den nuværende tid er: ${memberObject.timeMiliSeconds}ms`;
     updateForm.time.value = memberObject.timeMiliSeconds;
     document.querySelector("#update-swimtime-coach-dialog").showModal();
   }
+}
+
+// ========== update swimtime ========== //
+
+function cancelUpdate() {
+  console.log("cancel btn clicked");
+  document.querySelector("#update-swimtime-coach-dialog").close();
 }
 
 //close coach dialog
