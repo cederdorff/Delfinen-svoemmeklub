@@ -1,0 +1,26 @@
+Udkast til usability test - think aloud test
+
+1. Gå til forside. Beskriv, hvad du ser. Hvor vil du gå hen nu? Klik lidt rundt på siden. (2-3 min). 
+- Login. nem at finde. Ikke stylet. Sigende billede. Logo. Opdager burgermenu. Ikke så tydelige. Overskrifter stå der permanent i stedet for, at de kommer frem. 
+Engelsk frem for dansk, selvom svømmeklubben er dansk.   
+
+2. Find login og log på som formand (1-2 min)
+	- Username: 1234
+	- Password: 1234
+- Login er nem at finde. Lyser op. Virker ikke lige så stylet som det andet. Ser fornuftigt ud. Finder de tre nye punkter i burgermenu. 
+For formand. Medlemsoversigt. Medlemsdatabase  som formand. 
+
+3. Find Sofie Larsen i databasen. Opdater hendes alder til 20 år. (2-3 min.)
+- Finder hurtigt Sofie Larsen. Kan ikke opdatere dialogvindue. Kan ikke scrolle ned i bunden. Kan ikke komme til opdater-knap. 
+
+4. Find ud af, hvem der har den fjerdebedste tid i rygcrawl. (2-3 min.)
+- Finder ud af, at det ligger under for trænerne. Sorter og fliltrer virker ikke helt. Smart hvis man kunne filtrere efter discipliner.  
+
+5. Opret et nyt medlem med oplysninger, som du finder på. (3-4 min.) 
+- "Nyt emdlem"-knap kunne måske hedde "Opret nyt medlem"? Kan ikke komme ned til bund dialogvindue. Kan ikke scrolle ned i bunden. Kan ikke komme til gem-knap. Samme problem som ved opdater.
+
+6. Har Kasper Kristensen betalt kontingent? Hvor meget skylder han i givet fald svømmeklubben? (2-3 min.)
+- Spørgsmål for kasseren. Restance-kategori findes hurtigt.  
+
+7. Hvis du kunne ændre 1-2 ting på hjemmesiden, hvad skulle det så være?
+- Filtrer og sorter samt opdater og opret nyt medlem kunne med fordel fungere bedre. Lige så rart, at menuen stod fremme hele tiden, frem for gemt væk i burgermenu.
