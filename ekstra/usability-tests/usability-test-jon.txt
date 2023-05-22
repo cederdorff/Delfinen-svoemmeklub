@@ -1,0 +1,27 @@
+Udkast til usability test - think aloud test
+
+1. Gå til forside. Beskriv, hvad du ser. Hvor vil du gå hen nu? Klik lidt rundt på siden. (2-3 min). 
+- finder login knap og kan ikke lukke det igen. Burger menuen er ikke særlig tydelig
+
+2. Find login og log på som formand (1-2 min)
+	- Username: 1234
+	- Password: 1234
+- Er lige ved at vælge træner i stedet for formand.
+
+3. Find Sofie Larsen i databasen. Opdater hendes alder til 20 år. (2-3 min.)
+- Finder "Sofie" uden problemer, men forvirret over dansk engelsk(submit knap).
+
+4. Find ud af, hvem der har den fjerdebedste tid i rygcrawl. (2-3 min.)
+- Finder ikke trænerens oversigt og må dirigeres til burger menuen. Kan ikke fitrere på discipliner og må læse/springe/tælle sig gennem listen for at finder nr. 4 i ryg-crawl.
+
+5. Opret et nyt medlem med oplysninger, som du finder på. (3-4 min.) 
+- Syntes det er mærkeligt at det er formanden der skal oprette medlemmer(PO problem måske). Langt mellem input felter og overskrifter, bliver forvirret over hvilke felter der hører til hvor, vil gerne have haft en bedre opdeling. Vil gerne have haft en checkbox til valg af discipliner i stedet for komma-separeret tekst. Syntes det er mærkeligt at man kan vælge at oprette et passivt medlemskab(PO?). Oprettelsen af medlem virkede ikke(burde være fikset.)
+
+6. Har Kasper Kristensen betalt kontingent? Hvor meget skylder han i givet fald svømmeklubben? (2-3 min.)
+-  Finder hurtig ud af at kasper skylder 500. Ser ikke filtrerings mulighed. Da listen er kort er det nemt at finde kasper kristensen. Ser at X ved search ikke har nogen funktion.
+
+7. Hvis du kunne ændre 1-2 ting på hjemmesiden, hvad skulle det så være?
+- man kan scrolle til bunden men der er intet at scolle efter, havde forvente små links til kontakt og lign.
+- flere dropdown menuer og bedre oversigt
+- tydeligere menu. Måske ikke grund til fancy burger menu eller gør den mere tydelig
+- ellers meget autentisk, "det ligner lidt karateklubbens system"
