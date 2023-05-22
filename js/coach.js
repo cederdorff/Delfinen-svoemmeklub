@@ -25,7 +25,7 @@ async function showCompetitiveMembers(results, members) {
   for (const result of results) {
     const member = members.find((member) => member.id === result.memberId);
     result.member = member;
-    // console.log(result);
+    console.log(result);
   }
 
   showCompetitiveMemberLoop(results);

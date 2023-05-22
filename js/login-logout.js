@@ -119,21 +119,5 @@ function removeLinksFromNavBarAfterLogOutClicked() {
   addedLinks.forEach((link) => link.remove());
 }
 
-// ========== Forklaring på removeLinksFromNavBarAfterLogOutClicked======== //
-// I removeLinksFromNavBarAfterLogOutClicked()-funktionen ønsker vi at fjerne visse links fra navigationslinjen, når brugeren logger ud, mens vi bevarer de andre links, der var der før.
-// Her er trinnene i funktionen:
-// Først finder vi det område i navigationslinjen, hvor de nye links blev tilføjet. Dette område har en bestemt klasse, der hedder .dropdown-content.
-// Inden i .dropdown-content-området leder vi efter alle de <section>-elementer, der indeholder de nye links, som blev tilføjet, når brugeren loggede ind.
-// Vi bruger querySelectorAll(".dropdown-content section") til at finde alle <section>-elementerne inde i .dropdown-content.
-// Når vi har fundet disse <section>-elementer, går vi igennem hver af dem ved hjælp af en forEach-løkke.
-// For hvert <section>-element anvender vi remove()-metoden til at fjerne det fra navigationslinjen. På den måde fjerner vi kun de nye links og bevarer de oprindelige links.
-// På den måde sørger vi for, at kun de links, der blev tilføjet ved login, bliver fjernet, mens de oprindelige links forbliver intakte.
-
-
-// ========== Remove links from nav bar after log out ========== //
-// function removeLinksFromNavBarAfterLogOutClicked() {
-// const element = document.querySelector(".dropdown-content");
-// element.innerHTML ="";
-// }
 
 export { determineWhatIsShownInNavbar, logOutClicked };
