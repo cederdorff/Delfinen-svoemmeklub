@@ -77,7 +77,7 @@ async function updateMembersTable() {
   console.log(results);
   showMembersChairman(members);
   showMembersForCashier(members);
-  showCompetitiveMembers(results);
+  showCompetitiveMembers(results, members);
 }
 
 export { members, results, updateMembersTable };

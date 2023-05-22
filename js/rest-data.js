@@ -26,11 +26,23 @@ async function getResults() {
   return results;
 }
 
+// === GET MEMBERS BY ID === //
 async function getMembersCoach(id) {
   const response = await fetch(`${endpoint}/members/${id}.json`);
   const data = await response.json();
 
   return data;
+}
+
+// === UPDATE Result Coach === //
+async function updateSwimtimeResult(id, timeResult) {
+  const timeToUpdate = {
+    timeMiliSeconds: timeResult,
+  };
+  const resultAsJson = JSON.stringify(timeToUpdate);
+
+  const response = await fetch(`${endpoint}/results/${id}.json`, { method: "PUT", body: resultAsJson });
+  return response;
 }
 
 // === DELETE (DELETE) === //
@@ -50,4 +62,5 @@ async function updateMemberChairman(id, member) {
   const data = await response.json();
   return response;
 }
-export { getMembers, getResults, getMembersCoach, deleteMember, updateMemberChairman };
+
+export { getMembers, getResults, getMembersCoach, deleteMember, updateMemberChairman, updateSwimtimeResult };

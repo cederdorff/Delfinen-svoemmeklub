@@ -1,4 +1,4 @@
-import { getMembersCoach } from "./rest-data.js";
+import { getMembersCoach, updateSwimtimeResult } from "./rest-data.js";
 import { results, updateMembersTable } from "./script.js";
 
 // ----- global variable ----- //
@@ -9,7 +9,11 @@ let isFilterOn;
 // ========== show competitve members ========== //
 //import { members } from "./script.js";
 
-async function showCompetitiveMembers(results) {
+async function showCompetitiveMembers(results, members) {
+  // event listener til svømmetid update
+  document.querySelector("#update-swimtime-coach-form .btn-close-coach").addEventListener("click", cancelUpdate);
+  document.querySelector("#update-swimtime-coach-form").addEventListener("submit", updateCoachSwimTime);
+
   // event listener til sort
   document.querySelector("#sortBy-for-coach").addEventListener("change", sortByForCoach);
 
@@ -19,9 +23,9 @@ async function showCompetitiveMembers(results) {
   document.querySelector("#coachFilterSenior").addEventListener("change", filterforCoach);
 
   for (const result of results) {
-    const member = await getMembersCoach(result.memberId);
+    const member = members.find((member) => member.id === result.memberId);
     result.member = member;
-    console.log(result);
+    // console.log(result);
   }
 
   showCompetitiveMemberLoop(results);
@@ -50,11 +54,19 @@ async function showCompetitiveMember(memberObject) {
         <td>${memberObject.disciplin}</td>
         <td>${memberObject.timeMiliSeconds}ms</td>
         <td>${memberObject.date}</td>
+        <td><button class="coachTableUpdateBtn">Update svømmetid</button></td>
       </tr>
     `
   );
 
   document.querySelector("#coach-members-tbody tr:last-child").addEventListener("click", showAthlete);
+
+  document
+    .querySelector("#coach-members-tbody tr:last-child .coachTableUpdateBtn")
+    .addEventListener("click", (event) => {
+      event.stopPropagation();
+      coachTableUpdate();
+    });
 
   function showAthlete(event) {
     console.log("athlete clicked");
@@ -81,12 +93,49 @@ async function showCompetitiveMember(memberObject) {
 
     // show modal/dialog
     document.querySelector("#coach-dialog").showModal();
+
+    // update swim time
+  }
+  function coachTableUpdate() {
+    const updateForm = document.querySelector("#update-swimtime-coach-form");
+    document.querySelector(
+      "#update-swimtime-coach-person"
+    ).textContent = `Svømme tid for: ${memberObject.member.firstname} ${memberObject.member.lastname}`;
+    document.querySelector(
+      "#update-swimtime-coach-oldtime"
+    ).textContent = `Den nuværende tid er: ${memberObject.timeMiliSeconds}ms`;
+    updateForm.time.value = memberObject.timeMiliSeconds;
+    updateForm.setAttribute("data-id", memberObject.id);
+    document.querySelector("#update-swimtime-coach-dialog").showModal();
   }
 }
 
-//close cashier dialog
+//close coach dialog
 function closeCoachDialog() {
   document.querySelector("#coach-dialog").close();
+}
+
+// ========== update swimtime ========== //
+
+function cancelUpdate() {
+  console.log("cancel btn clicked");
+  document.querySelector("#update-swimtime-coach-dialog").close();
+}
+
+async function updateCoachSwimTime(event) {
+  // console.log(event);
+  const form = event.target;
+  const swimtime = document.querySelector("#update-swimtime-coach").value;
+
+  const id = form.getAttribute("data-id");
+  const response = await updateSwimtimeResult(id, swimtime);
+  console.log();
+  if (response.ok) {
+    console.log("result updatet");
+    updateMembersTable();
+  } else {
+    console.log("something whent wrong...?");
+  }
 }
 
 // ========== Sort ========== //
