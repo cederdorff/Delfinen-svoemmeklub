@@ -41,7 +41,7 @@ async function updateSwimtimeResult(id, timeResult) {
   };
   const resultAsJson = JSON.stringify(timeToUpdate);
 
-  const response = await fetch(`${endpoint}/result/${id}.json`, { method: "PUT", body: resultAsJson });
+  const response = await fetch(`${endpoint}/results/${id}.json`, { method: "PUT", body: resultAsJson });
   return response;
 }
 
