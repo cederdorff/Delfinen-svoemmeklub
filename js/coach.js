@@ -9,7 +9,7 @@ let isFilterOn;
 // ========== show competitve members ========== //
 //import { members } from "./script.js";
 
-async function showCompetitiveMembers(results) {
+async function showCompetitiveMembers(results, members) {
   // event listener til svømmetid update
   document.querySelector("#update-swimtime-coach-form .btn-close-coach").addEventListener("click", cancelUpdate);
   document.querySelector("#update-swimtime-coach-form").addEventListener("submit", updateCoachSwimTime);
@@ -23,7 +23,7 @@ async function showCompetitiveMembers(results) {
   document.querySelector("#coachFilterSenior").addEventListener("change", filterforCoach);
 
   for (const result of results) {
-    const member = await getMembersCoach(result.memberId);
+    const member = members.find((member) => member.id === result.memberId);
     result.member = member;
     // console.log(result);
   }
@@ -123,12 +123,13 @@ function cancelUpdate() {
 }
 
 async function updateCoachSwimTime(event) {
-  console.log(event);
+  // console.log(event);
   const form = event.target;
   const swimtime = document.querySelector("#update-swimtime-coach").value;
 
   const id = form.getAttribute("data-id");
-  const response = await updateCoachSwimTime(id, swimtime);
+  const response = await updateSwimtimeResult(id, swimtime);
+  console.log();
   if (response.ok) {
     console.log("result updatet");
     updateMembersTable();
